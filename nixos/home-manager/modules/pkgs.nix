@@ -1,0 +1,34 @@
+{ pkgs, inputs, ... }:
+{
+  home.packages = with pkgs; [
+    firefox
+    neovide
+    blueman
+    bluetui
+    yazi
+    alacritty
+    hyprland
+    hyprpaper
+    xwayland
+    hyprshot
+    swaylock
+    hypridle
+    rofi
+    waybar
+    yazi
+    proton-pass 
+    protonmail-desktop
+    protonvpn-gui
+    brightnessctl
+    pwvucontrol
+    obsidian
+    playerctl
+    wl-clipboard-rs
+    ani-cli
+    clipse
+    tealdeer
+    cheese
+    teams-for-linux
+    qbittorrent
+  ];
+}
