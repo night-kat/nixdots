@@ -93,14 +93,15 @@ in
   services.printing.enable = true;
 
   # Enable sound.
-  # services.pulseaudio.enable = true;
+  services.pipewire.enable = false;
+  services.pulseaudio.enable = true;
   # OR
-  services.pipewire = {
-    enable = true;
-    pulse.enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-  };
+  # services.pipewire = {
+  #   enable = true;
+  #   pulse.enable = true;
+  #   alsa.enable = true;
+  #   alsa.support32Bit = true;
+  # };
 
   hardware.bluetooth.enable = true;
 
@@ -161,7 +162,6 @@ in
     ffmpeg
     mpv
     yubioath-flutter
-    yubikey-agent
     luajitPackages.luarocks_bootstrap
     clang
     rustup

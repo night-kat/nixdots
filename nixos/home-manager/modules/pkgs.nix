@@ -2,10 +2,15 @@
 {
   home.packages = with pkgs; [
     firefox
+    mpc
+    mpd
     neovide
     blueman
     bluetui
     yazi
+    swaynotificationcenter
+    wireplumber
+    cava
     alacritty
     hyprland
     hyprpaper
@@ -13,6 +18,7 @@
     hyprshot
     swaylock
     hypridle
+    lazygit
     rofi
     waybar
     yazi
