@@ -93,17 +93,39 @@ in
   services.printing.enable = true;
 
   # Enable sound.
-  services.pipewire.enable = false;
-  services.pulseaudio.enable = true;
+  # services.pipewire.enable = false;
+  # services.pulseaudio.enable = true;
   # OR
-  # services.pipewire = {
-  #   enable = true;
-  #   pulse.enable = true;
-  #   alsa.enable = true;
-  #   alsa.support32Bit = true;
-  # };
+  services.pipewire = {
+    enable = true;
+    pulse.enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+  };
 
-  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
+
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+    settings = {
+      General = {
+        # Shows battery charge of connected devices on supported
+        # Bluetooth adapters. Defaults to 'false'.
+        Experimental = true;
+        # When enabled other devices can connect faster to us, however
+        # the tradeoff is increased power consumption. Defaults to
+        # 'false'.
+        FastConnectable = false;
+      };
+      Policy = {
+        # Enable all controllers when they are found. This includes
+        # adapters present on start as well as adapters that are plugged
+        # in later on. Defaults to 'true'.
+        AutoEnable = true;
+      };
+      };
+    };
 
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
@@ -145,6 +167,7 @@ in
     nerd-fonts.fira-code
   ];
 
+
   # Keyring
   services.gnome.gnome-keyring.enable = true;
   programs.seahorse.enable = true; # GUI for managing passwords and keys
@@ -153,7 +176,6 @@ in
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
     (lib.hiPrio pkgs.uutils-coreutils-noprefix) # `lib.hiPrio` is used to avoid potential conflict with `coreutils-full` (also see https://discourse.nixos.org/t/how-to-use-uutils-coreutils-instead-of-the-builtin-coreutils/8904/15?u=malix)
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     neovim
     alacritty
@@ -168,6 +190,7 @@ in
     v4l-utils
     python313
     libsecret
+    bluez
   ];
 
 
