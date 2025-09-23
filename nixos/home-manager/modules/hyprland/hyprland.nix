@@ -26,7 +26,7 @@
 
     exec-once = [
       "clipse -listen"
-      "waybar"
+      # "waybar"
     ];
       
     input = {
