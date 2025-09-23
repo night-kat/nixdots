@@ -12,14 +12,13 @@
         gtk-layer-shell = true;
         height = 30;
         modules-left = [ "hyprland/workspaces" ];
-        modules-center = [ "mpris" ];
+        modules-center = [ "clock" ];
         modules-right = [
           "battery"
           "cpu"
           "memory"
           "pulseaudio"
-          "network"
-          "clock"
+          # "network"
           "tray"
         ];
 

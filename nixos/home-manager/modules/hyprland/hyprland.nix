@@ -89,6 +89,7 @@
     bind = [
       # Move focus and change windows around
       "$mainMod, Q, exec, $terminal"
+      "$mainMod, e, exec, $fileManager"
       "$mainMod, C, killactive"
       "$mainMod, R, exec, $menu"
       "$mainMod SHIFT, M, exit"
