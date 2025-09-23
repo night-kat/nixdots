@@ -33,8 +33,7 @@
     ani-cli
     clipse
     tealdeer
-    cheese
-    teams-for-linux
     qbittorrent
+    signal-desktop
   ];
 }
