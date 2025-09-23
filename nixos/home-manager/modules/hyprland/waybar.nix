@@ -18,6 +18,7 @@
           "cpu"
           "memory"
           "pulseaudio"
+          "network"
           "clock"
           "tray"
         ];
@@ -95,11 +96,7 @@
           format = "{icon} {volume}%";
           tooltip = false;
           format-muted = " Muted";
-          on-click = "pamixer -t";
-          on-right-click = "pavucontrol";
-          on-scroll-up = "pamixer -i 5";
-          on-scroll-down = "pamixer -d 5";
-          scroll-step = 5;
+          on-right-click = "pwvucontrol";
           format-icons = {
             headphone = " ";
             hands-free = " ";
@@ -115,7 +112,7 @@
           };
         };
 
-            network = {
+        network = {
           # interface = "wlp2*"; # (Optional) To force the use of this interface
           format-wifi = "  {signalStrength}%";
           format-ethernet = "{ipaddr}/{cidr} ";
@@ -278,10 +275,10 @@
 
       #pulseaudio {
         color: #89b4fa;
-        border-radius: 0px;
         border-left: 0px;
-        border-radius: 7px 0px 0px 7px;
+        border-radius: 7px 7px 7px 7px;
         border-right: 0px;
+        margin-right: 5px
       }
 
       #cpu {
