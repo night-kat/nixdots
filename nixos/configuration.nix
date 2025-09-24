@@ -181,6 +181,7 @@ in
     gphoto2
     ffmpeg
     mpv
+    mpvScripts.mpris
     yubioath-flutter
     luajitPackages.luarocks_bootstrap
     clang
