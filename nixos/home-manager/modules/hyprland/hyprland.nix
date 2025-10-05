@@ -14,7 +14,9 @@
     # source = [
     #   "/etc/nixos/home-manager/modules/hyprland/enter_your_theme_here"
     # ];
-    monitor = ",preferred,auto,auto";
+    monitor = ["eDP-1,2256x1504,auto,auto" ", preferred, auto, 1"];
+
+    # random monitor rule
 
     # Programs
     "$terminal" = "alacritty";
@@ -59,8 +61,8 @@
       "rounding_power" = 2;
 
       # Change transparency of focused and unfocused windows
-      active_opacity = "0.95";
-      inactive_opacity = "0.85";
+      active_opacity = "1.00";
+      inactive_opacity = "1.00";
 
       shadow = {
         enabled = true;
@@ -182,9 +184,11 @@
       ", XF86MonBrightnessUp, exec, brightnessctl s 5%+"
       ", XF86MonBrightnessDown, exec, brightnessctl s 5%-"
     ]; 
-    
+
       windowrulev2 = [
         "suppressevent maximize, class:.*"
+        "opacity 0.85 0.75 1.00, class:Alacritty"
+        "opacity 0.85 0.75 1.00, class:neovide"
         "float, class:(clipse)"
         "size 622 652, class:(clipse)"
       ];
