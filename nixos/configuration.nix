@@ -71,6 +71,8 @@ in
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
   
+  services.fwupd.enable = true;
+  
   # Configure keymap in X11
   services = {
     xserver = {
@@ -145,6 +147,7 @@ in
     builtins.elem (lib.getName pkg) [
       "obsidian"
       "steam"
+      "teams"
     ];
 
   programs.firefox.enable = true;
@@ -182,6 +185,7 @@ in
     ffmpeg
     mpv
     mpvScripts.mpris
+    fwupd
     yubioath-flutter
     luajitPackages.luarocks_bootstrap
     clang
