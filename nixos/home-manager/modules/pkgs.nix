@@ -6,12 +6,14 @@
     mpd
     neovide
     blueman
+    libreoffice
     bluetui
     yazi
     swaynotificationcenter
     wireplumber
     cava
     alacritty
+    niri
     hyprland
     hyprpaper
     xwayland
@@ -35,5 +37,6 @@
     tealdeer
     qbittorrent
     signal-desktop
+    rustlings
   ];
 }
