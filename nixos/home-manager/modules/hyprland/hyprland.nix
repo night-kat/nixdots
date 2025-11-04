@@ -107,10 +107,10 @@
       "$mainMod, k, movefocus, u"
       "$mainMod, j, movefocus, d"
 
-      "$mainMod CTRL, h, movewindow, l"
-      "$mainMod CTRL, l, movewindow, r"
-      "$mainMod CTRL, k, movewindow, u"
-      "$mainMod CTRL, j, movewindow, d"
+      "$mainMod SHIFT, h, movewindow, l"
+      "$mainMod SHIFT, l, movewindow, r"
+      "$mainMod SHIFT, k, movewindow, u"
+      "$mainMod SHIFT, j, movewindow, d"
 
       # Switch workspaces
       "$mainMod, 1, workspace, 1"
