@@ -1,14 +1,17 @@
 { pkgs, inputs, ... }:
 {
+  programs = { 
+    firefox.enable = true;
+    neovide.enable = true;
+    yazi.enable = true;
+  };
+
   home.packages = with pkgs; [
-    firefox
     mpc
     mpd
-    neovide
     blueman
     libreoffice
     bluetui
-    yazi
     swaynotificationcenter
     wireplumber
     cava
