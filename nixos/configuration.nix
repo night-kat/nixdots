@@ -54,7 +54,7 @@ in
     LC_TIME="de_DE.UTF-8";
     LC_COLLATE="de_DE.UTF-8";
     LC_MONETARY="de_DE.UTF-8";
-    LC_MESSAGES="de_DE.UTF-8";
+    LC_MESSAGES="en_GB.UTF-8";
     LC_PAPER="de_DE.UTF-8";
     LC_NAME="de_DE.UTF-8";
     LC_ADDRESS="de_DE.UTF-8";
@@ -95,6 +95,15 @@ in
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
+
+  # Enable autodiscovery of network printers
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
+
+  services.printing.drivers = [pkgs.epson-escpr];
 
   # Enable sound.
   # services.pipewire.enable = false;
