@@ -14,9 +14,9 @@
     # source = [
     #   "/etc/nixos/home-manager/modules/hyprland/enter_your_theme_here"
     # ];
-    monitor = ["eDP-1,2256x1504,auto,auto" ", preferred, auto, 1"];
 
-    # random monitor rule
+    # Rules for monitors. From left to right: Laptop screen, any random screen/fallback rule
+    monitor = ["eDP-1,2256x1504,auto,auto" ", preferred, auto, 1"];
 
     # Programs
     "$terminal" = "alacritty";

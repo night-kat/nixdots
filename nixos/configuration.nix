@@ -137,12 +137,12 @@ in
         # in later on. Defaults to 'true'.
         AutoEnable = true;
       };
-      };
     };
+  };
 
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
-
+  
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.nightcat = {
     isNormalUser = true;
@@ -162,28 +162,25 @@ in
       "steam"
       "teams"
     ];
-
-  programs.firefox.enable = true;
-
-  programs.ssh.startAgent = true;
-
-  # services.yubikey-agent.enable = true;
-
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
+  
+  programs = {
+    firefox.enable = true;
+    ssh.startAgent = true;
+    hyprland = {
+      enable = true;
+      xwayland.enable = true;
+    };
+    fish.enable = true;
   };
 
-  programs.fish.enable = true;
+  # services.yubikey-agent.enable = true;
 
   fonts.packages = with pkgs; [ 
     nerd-fonts.jetbrains-mono 
     nerd-fonts.fira-code
   ];
 
-
   # Keyring
-  services.gnome.gnome-keyring.enable = true;
   programs.seahorse.enable = true; # GUI for managing passwords and keys
 
   # List packages installed in system profile.
@@ -219,10 +216,11 @@ in
   # };
 
   # List services that you want to enable:
-
   # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
-
+  services = {
+      openssh.enable = true;
+      gnome.gnome-keyring.enable = true;
+  };
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
