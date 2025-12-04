@@ -3,6 +3,7 @@
 {
   imports = [
     ./pkgs.nix
+    ./waybar.nix
     ./hyprland/default.nix
     ./ssh.nix
     ./mpv.nix
