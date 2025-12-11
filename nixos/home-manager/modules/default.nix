@@ -7,5 +7,6 @@
     ./hyprland/default.nix
     ./ssh.nix
     ./mpv.nix
+    ./cursor.nix
   ];
 }

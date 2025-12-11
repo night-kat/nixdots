@@ -8,6 +8,7 @@
   };
 
   home.packages = with pkgs; [
+    fuchsia-cursor
     mpc
     mpd
     blueman
@@ -42,5 +43,6 @@
     qbittorrent
     signal-desktop
     rustlings
+    hyprcursor
   ];
 }

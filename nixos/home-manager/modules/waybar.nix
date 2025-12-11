@@ -1,7 +1,8 @@
 {
   programs.waybar = {
     enable = true;
-    systemd.enable = true;
+    # This would run waybar at startup. I have done it in hyprland.nix
+    # systemd.enable = true;
     settings = {
       mainBar = {
         layer = "top";
@@ -383,7 +384,6 @@
         color: #c0caf5;
         border-bottom: 2px solid @yellow;
       }
-
-    '';
+      '';
   };
 }

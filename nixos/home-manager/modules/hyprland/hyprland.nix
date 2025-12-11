@@ -28,7 +28,7 @@
 
     exec-once = [
       "clipse -listen"
-      # "waybar"
+      "waybar"
     ];
       
     input = {
@@ -38,7 +38,7 @@
       kb_rules = "";
       touchpad = {
         natural_scroll = true;
-        disable_while_typing = false;
+        disable_while_typing = true;
       };
       sensitivity = 0; # -1.0 - 1.0, 0 = means no modification
     };
@@ -83,8 +83,6 @@
     };
 
     env = [
-      "XCURSOR_SIZE,24"
-      "HYPRCURSOR_SIZE,24"
     ];
 
     "$mainMod" = "SUPER";
