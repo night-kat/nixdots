@@ -3,6 +3,7 @@
 {
   programs.ssh = {
     enable = true;
-    addKeysToAgent = "yes";
+    enableDefaultConfig = false;
+    matchBlocks.github_key.addKeysToAgent = "yes";
   };
 }
