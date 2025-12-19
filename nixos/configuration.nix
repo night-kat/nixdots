@@ -1,27 +1,23 @@
-
 # Edit this configuration file to define what should be installed on
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
 { config, lib, pkgs, ... }:
 
-let 
-  home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-25.05.tar.gz";
-in
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      (import "${home-manager}/nixos")
+      <home-manager/nixos>
     ];
 
-  home-manager.useGlobalPkgs = true;
-  home-manager.backupFileExtension = "backup";
-  home-manager.users.nightcat = import ./home-manager/home.nix;
+    home-manager.useGlobalPkgs = true;
+    home-manager.backupFileExtension = "backup";
+    home-manager.users.nightcat = import ./home-manager/home.nix;
+
 
   # Add extra Kernel modules
-  boot.extraModulePackages = with config.boot.kernelPackages; [v4l2loopback.out];
-  boot.kernelModules = ["v4l2loopback" "uvcvideo"];
+  boot.kernelModules = ["uvcvideo"];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.grub.device = "nodev";
@@ -31,6 +27,8 @@ in
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  system.autoUpgrade.enable = true;
 
   # networking.hostName = "nixos"; # Define your hostname.
   # Pick only one of the below networking options.
@@ -165,12 +163,15 @@ in
   
   programs = {
     firefox.enable = true;
-    ssh.startAgent = true;
+    # ssh.startAgent = true;
     hyprland = {
       enable = true;
       xwayland.enable = true;
     };
     fish.enable = true;
+    git = {
+      enable = true;
+    };
   };
 
   # services.yubikey-agent.enable = true;
@@ -190,7 +191,6 @@ in
     wget
     neovim
     alacritty
-    git
     gphoto2
     ffmpeg
     mpv
@@ -199,6 +199,7 @@ in
     yubioath-flutter
     luajitPackages.luarocks_bootstrap
     clang
+    ripgrep
     rustup
     v4l-utils
     python313
