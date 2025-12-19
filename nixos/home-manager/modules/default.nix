@@ -8,5 +8,6 @@
     ./ssh.nix
     ./mpv.nix
     ./cursor.nix
+    ./fish.nix
   ];
 }

@@ -6,5 +6,6 @@
     shellAliases = {
       btw = "echo i use nixos btw";
       grep = "rg";
+    };
   };
 }
