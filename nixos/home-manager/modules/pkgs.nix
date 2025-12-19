@@ -3,8 +3,11 @@
 {
   programs = { 
     firefox.enable = true;
-    neovide.enable = true;
     yazi.enable = true;
+    bacon.enable = true;
+    neovim.enable = true;
+    neovide.enable = true;
+    home-manager.enable = true;
   };
 
   home.packages = with pkgs; [
