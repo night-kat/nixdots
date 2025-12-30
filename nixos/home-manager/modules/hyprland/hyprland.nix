@@ -16,7 +16,7 @@
     # ];
 
     # Rules for monitors. From left to right: Laptop screen, any random screen/fallback rule
-    monitor = ["eDP-1,2256x1504,auto,auto" ", preferred, auto, 1"];
+    monitor = ["eDP-1,2256x1504,auto,1.57" ", preferred, auto, auto"];
 
     # Programs
     "$terminal" = "alacritty";

@@ -47,5 +47,6 @@
     signal-desktop
     rustlings
     hyprcursor
+    yubikey-manager
   ];
 }
