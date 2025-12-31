@@ -5,8 +5,8 @@
     firefox.enable = true;
     yazi.enable = true;
     bacon.enable = true;
-    neovim.enable = true;
-    neovide.enable = true;
+    neovim.enable = false;
+    neovide.enable = false;
     home-manager.enable = true;
   };
 

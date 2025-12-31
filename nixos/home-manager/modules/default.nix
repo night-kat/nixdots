@@ -9,5 +9,6 @@
     ./mpv.nix
     ./cursor.nix
     ./fish.nix
+#    ./nvim.nix
   ];
 }
