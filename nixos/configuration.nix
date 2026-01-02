@@ -203,6 +203,10 @@
 
   };
 
+  security = {
+    pam.services.sddm.enableGnomeKeyring = true;
+  };
+
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
