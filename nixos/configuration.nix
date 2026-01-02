@@ -8,7 +8,6 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      <home-manager/nixos>
     ];
 
     home-manager.useGlobalPkgs = true;
@@ -68,53 +67,7 @@
     font = "Lat2-Terminus16";
     # keyMap = "de";
     useXkbConfig = true; # use xkb.options in tty
-  };
-
-  # Enable the X11 windowing system.
-  # services.xserver.enable = true;
-  
-  services.fwupd.enable = true;
-  
-  # Configure keymap in X11
-  services = {
-    xserver = {
-      xkb = {
-        layout = "de";
-        variant = "";
-      }; 
-    };
-    displayManager.sddm = {
-      wayland.enable = true;
-      enable = true;
-    };
-  };
-
-  # services.xserver.xkb.options = "eurosign:e,caps:escape";
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
-  # Enable autodiscovery of network printers
-  services.avahi = {
-    enable = true;
-    nssmdns4 = true;
-    openFirewall = true;
-  };
-
-  services.printing.drivers = [pkgs.epson-escpr];
-
-  # Enable sound.
-  # services.pipewire.enable = false;
-  # services.pulseaudio.enable = true;
-  # OR
-  services.pipewire = {
-    enable = true;
-    pulse.enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-  };
-
-  services.blueman.enable = true;
+  };  
 
   services.pcscd.enable = true;
 
@@ -140,8 +93,6 @@
     };
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  services.libinput.enable = true;
   
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.nightcat = {
@@ -176,7 +127,6 @@
     };
   };
 
-  # services.yubikey-agent.enable = true;
 
   fonts.packages = with pkgs; [ 
     nerd-fonts.jetbrains-mono 
@@ -220,10 +170,45 @@
   #  };
 
   # List services that you want to enable:
-  # Enable the OpenSSH daemon.
   services = {
       openssh.enable = true;
+      gnome.gnome-keyring.enable = true;
+      avahi = {
+        enable = true;
+        nssmdns4 = true;
+        openFirewall = true;
+      };
+      printing.drivers = [pkgs.epson-escpr];
+      # Enable touchpad support (enabled default in most desktopManager).
+      libinput.enable = true;
+      pipewire = {
+        enable = true;
+        pulse.enable = true;
+        alsa.enable = true;
+        alsa.support32Bit = true;
+      };
+      blueman.enable = true;
+      # Enable CUPS to print documents.
+      printing.enable = true;
+      xserver = {
+        xkb = {
+          layout = "de";
+          variant = "";
+        }; 
+      };
+      displayManager.sddm = {
+        wayland.enable = true;
+        enable = true;
+      };
+      fwupd.enable = true;
+      # yubikey-agent.enable = true;
+
   };
+
+  security = {
+    pam.services.sddm.enableGnomeKeyring = true;
+  };
+
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
@@ -233,7 +218,7 @@
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
   # accidentally delete configuration.nix.
-  system.copySystemConfiguration = true;
+  system.copySystemConfiguration = false;
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
@@ -253,6 +238,5 @@
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
   system.stateVersion = "25.05"; # Did you read the comment?
-
 }
 
