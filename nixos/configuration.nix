@@ -69,6 +69,8 @@
     useXkbConfig = true; # use xkb.options in tty
   };  
 
+  services.pcscd.enable = true;
+
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;
@@ -139,7 +141,6 @@
   environment.systemPackages = with pkgs; [
     (lib.hiPrio pkgs.uutils-coreutils-noprefix) # `lib.hiPrio` is used to avoid potential conflict with `coreutils-full` (also see https://discourse.nixos.org/t/how-to-use-uutils-coreutils-instead-of-the-builtin-coreutils/8904/15?u=malix)
     wget
-    neovim
     alacritty
     gphoto2
     ffmpeg
@@ -155,6 +156,7 @@
     python313
     libsecret
     bluez
+    pcscliteWithPolkit
     vscodium
   ];
 
@@ -162,10 +164,10 @@
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
+  #  programs.gnupg.agent = {
+  #    enable = true;
+  #    enableSSHSupport = true;
+  #  };
 
   # List services that you want to enable:
   services = {
