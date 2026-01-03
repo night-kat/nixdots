@@ -201,7 +201,7 @@
         enable = true;
       };
       fwupd.enable = true;
-      # yubikey-agent.enable = true;
+      yubikey-agent.enable = true;
 
   };
 
