@@ -9,6 +9,7 @@
     ./mpv.nix
     ./cursor.nix
     ./fish.nix
+    ./git.nix
 #    ./nvim.nix
   ];
 }

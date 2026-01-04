@@ -67,9 +67,7 @@
     font = "Lat2-Terminus16";
     # keyMap = "de";
     useXkbConfig = true; # use xkb.options in tty
-  };  
-
-  services.pcscd.enable = true;
+  };
 
   hardware.bluetooth = {
     enable = true;
@@ -116,7 +114,7 @@
   
   programs = {
     firefox.enable = true;
-    # ssh.startAgent = true;
+    ssh.startAgent = true;
     hyprland = {
       enable = true;
       xwayland.enable = true;
@@ -171,8 +169,20 @@
 
   # List services that you want to enable:
   services = {
+    pcscd.enable = true;
+    auto-cpufreq.enable = true;
+    auto-cpufreq.settings = {
+      battery = {
+        governor = "powersave";
+        turbo = "never";
+      };
+      charger = {
+        governor = "performance";
+        turbo = "auto";
+      };
+    };
       openssh.enable = true;
-      gnome.gnome-keyring.enable = true;
+      # gnome.gnome-keyring.enable = true;
       avahi = {
         enable = true;
         nssmdns4 = true;
@@ -201,12 +211,11 @@
         enable = true;
       };
       fwupd.enable = true;
-      yubikey-agent.enable = true;
-
+      # yubikey-agent.enable = true;
   };
 
   security = {
-    pam.services.sddm.enableGnomeKeyring = true;
+    # pam.services.sddm.enableKeyring = true;
   };
 
   # Open ports in the firewall.
