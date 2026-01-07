@@ -10,10 +10,9 @@
       ./hardware-configuration.nix
     ];
 
-    home-manager.useGlobalPkgs = true;
-    home-manager.backupFileExtension = "backup";
-    home-manager.users.nightcat = import ./home-manager/home.nix;
-
+  home-manager.useGlobalPkgs = true;
+  home-manager.backupFileExtension = "backup";
+  home-manager.users.nightcat = import ./home-manager/home.nix;
 
   # Add extra Kernel modules
   boot.kernelModules = ["uvcvideo"];
@@ -117,7 +116,6 @@
     ssh.startAgent = true;
     hyprland = {
       enable = true;
-      xwayland.enable = true;
     };
     fish.enable = true;
     git = {
@@ -156,6 +154,7 @@
     bluez
     pcscliteWithPolkit
     vscodium
+    # vlc
   ];
 
 
