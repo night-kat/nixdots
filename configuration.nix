@@ -10,10 +10,9 @@
       ./hardware-configuration.nix
     ];
 
-    home-manager.useGlobalPkgs = true;
-    home-manager.backupFileExtension = "backup";
-    home-manager.users.nightcat = import ./home-manager/home.nix;
-
+  home-manager.useGlobalPkgs = true;
+  home-manager.backupFileExtension = "backup";
+  home-manager.users.nightcat = import ./home-manager/home.nix;
 
   # Add extra Kernel modules
   boot.kernelModules = ["uvcvideo"];
@@ -156,6 +155,7 @@
     bluez
     pcscliteWithPolkit
     vscodium
+    # vlc
   ];
 
 

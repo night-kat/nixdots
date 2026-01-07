@@ -3,7 +3,6 @@
 {
   programs = { 
     firefox.enable = true;
-    yazi.enable = true;
     bacon.enable = true;
     neovim.enable = false;
     neovide.enable = false;
