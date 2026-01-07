@@ -16,7 +16,10 @@
     # ];
 
     # Rules for monitors. From left to right: Laptop screen, any random screen/fallback rule
-    monitor = ["eDP-1,2256x1504,auto,1.57" ", preferred, auto, auto"];
+    monitor = [
+      "eDP-1,2256x1504,auto,1.57, bitdepth, 10, cm, auto, sdrbrightness, 1.2, sdrsaturation, 0"
+      ", preferred, auto, auto"
+    ];
 
     # Programs
     "$terminal" = "alacritty";
@@ -81,7 +84,13 @@
         "myBezier, 0.05, 0.9, 0.1, 1.05"
       ];
     };
-
+    
+    render = [
+      "cm_auto_hdr = 1;"
+      "cm_fs_passthrough = 2"
+      "non_shader_cm = 2"
+    ];
+    
     env = [
     ];
 
