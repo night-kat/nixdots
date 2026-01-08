@@ -13,8 +13,8 @@
       # if HDR is on, it causes everything to look dull. 
       target-colorspace-hint-mode= "source";
       # perfect settings for framework laptop
-      contrast = "-32";
-      brightness = "8"; 
+      contrast = "-25";
+      brightness = "4"; 
       profile = "high-quality";
       ytdl-format = "bestvideo+bestaudio";
       cache-default = 4000000;
