@@ -15,9 +15,11 @@
     #   "/etc/nixos/home-manager/modules/hyprland/enter_your_theme_here"
     # ];
 
-    # Rules for monitors. From left to right: Laptop screen, any random screen/fallback rule
+    # Rules for monitors
     monitor = [
-      "eDP-1,2256x1504,auto,1.57, bitdepth, 10, cm, auto, sdrbrightness, 1.2, sdrsaturation, 0"
+      # Laptop screen
+      "eDP-1,2256x1504,auto,1.57, bitdepth, 10, cm, auto, sdrbrightness, 1.2, sdrsaturation, 0" 
+      # Any random screen/fallback rule
       ", preferred, auto, auto"
     ];
 
