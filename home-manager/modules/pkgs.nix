@@ -48,5 +48,6 @@
     rustlings
     hyprcursor
     yubikey-manager
+    imagemagick
   ];
 }

@@ -10,6 +10,7 @@
     ./cursor.nix
     ./fish.nix
     ./git.nix
-#    ./nvim.nix
+    ./yazi.nix
+    # ./nvim.nix
   ];
 }
