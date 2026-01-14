@@ -94,6 +94,7 @@
     ];
     
     env = [
+      "EDITOR, codium"
     ];
 
     "$mainMod" = "SUPER";
