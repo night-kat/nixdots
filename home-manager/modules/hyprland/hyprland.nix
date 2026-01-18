@@ -195,12 +195,13 @@
       ", XF86MonBrightnessDown, exec, brightnessctl s 5%-"
     ]; 
 
-      windowrulev2 = [
-        "suppressevent maximize, class:.*"
-        "opacity 0.85 0.75 1.00, class:Alacritty"
-        "opacity 0.85 0.75 1.00, class:neovide"
-        "float, class:(clipse)"
-        "size 622 652, class:(clipse)"
+      windowrule = [
+        "no_blur on, match:class Firefox"
+        "suppress_event maximize, match:class *"
+        "opacity 0.85 0.75 1.00, match:class Alacritty"
+        "opacity 0.85 0.75 1.00, match:class neovide"
+        "float on, match:class (clipse)"
+        "size 622 652, match:class (clipse)"
       ];
     };
   };
