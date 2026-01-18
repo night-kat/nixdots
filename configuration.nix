@@ -124,10 +124,13 @@
   };
 
 
-  fonts.packages = with pkgs; [ 
-    nerd-fonts.jetbrains-mono 
-    nerd-fonts.fira-code
-  ];
+fonts= {
+    fontconfig.useEmbeddedBitmaps = true;
+    packages = with pkgs; [
+      fira-code
+      fira-code-symbols
+    ];
+};
 
   # Keyring
   programs.seahorse.enable = true; # GUI for managing passwords and keys
@@ -154,6 +157,8 @@
     bluez
     pcscliteWithPolkit
     vscodium
+    noto-fonts
+    noto-fonts-color-emoji
     # vlc
   ];
 
@@ -247,4 +252,3 @@
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
   system.stateVersion = "25.05"; # Did you read the comment?
 }
-
