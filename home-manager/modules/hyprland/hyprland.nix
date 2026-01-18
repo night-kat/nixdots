@@ -18,7 +18,7 @@
     # Rules for monitors
     monitor = [
       # Laptop screen
-      "eDP-1,2256x1504,auto,1.57, bitdepth, 10, cm, auto, sdrbrightness, 1.2, sdrsaturation, 0" 
+      "eDP-1,2256x1504@140,auto,1.57, bitdepth, 10, cm, auto, sdrbrightness, 1.2, sdrsaturation, 0" 
       # Any random screen/fallback rule
       ", preferred, auto, auto"
     ];
