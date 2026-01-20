@@ -58,5 +58,7 @@
     fzf # for quick file subtree navigation
     zoxide # for historical directories navigation, requires fzf
     resvg # for SVG preview
+    tor-browser
+    calibre
   ];
 }
