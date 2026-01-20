@@ -125,9 +125,16 @@
 
 
 fonts= {
-    fontconfig.useEmbeddedBitmaps = true;
+    fontconfig = {
+      useEmbeddedBitmaps = true;
+      defaultFonts ={
+        monospace = [
+          "JetBrainsMono Nerd Font"
+        ];
+      };
+    };
     packages = with pkgs; [
-      nerd-fonts.fira-code
+      nerd-fonts.jetbrains-mono
     ];
 };
 
@@ -156,8 +163,6 @@ fonts= {
     bluez
     pcscliteWithPolkit
     vscodium
-    noto-fonts
-    noto-fonts-color-emoji
     # vlc
   ];
 
@@ -213,12 +218,13 @@ fonts= {
         wayland.enable = true;
         enable = true;
       };
-      fwupd.enable = true;
+      # allows session software to update device firmware on the local machine
+      fwupd.enable = true; 
       # yubikey-agent.enable = true;
   };
 
   security = {
-    # pam.services.sddm.enableKeyring = true;
+
   };
 
   # Open ports in the firewall.
