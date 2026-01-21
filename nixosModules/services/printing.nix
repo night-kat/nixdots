@@ -8,5 +8,4 @@
       printing.drivers = [pkgs.epson-escpr];
     };
   }
-
 }

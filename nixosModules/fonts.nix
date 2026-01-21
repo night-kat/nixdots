@@ -1,7 +1,7 @@
 { ... }:
 
 {
-  fonts= {
+  fonts = {
     fontconfig.useEmbeddedBitmaps = true;
     packages = with pkgs; [
       fira-code

@@ -4,5 +4,4 @@
   services = {
     blueman.enable = true;
   }
-
 }

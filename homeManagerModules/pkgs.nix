@@ -1,7 +1,7 @@
 { pkgs, inputs, ... }:
 
 {
-  programs = { 
+  programs = {
     firefox.enable = true;
     yazi.enable = true;
     bacon.enable = true;
@@ -32,7 +32,7 @@
     rofi
     waybar
     yazi
-    proton-pass 
+    proton-pass
     protonmail-desktop
     protonvpn-gui
     brightnessctl

@@ -2,30 +2,39 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
-   nixpkgs.overlays = [ (final: prev: {
-    inherit (prev.lixPackageSets.stable)
-      nixpkgs-review
-      nix-eval-jobs
-      nix-fast-build
-      colmena;
-    }) ];
+  # https://lix.systems/add-to-config/
+  nixpkgs.overlays = [
+    (final: prev: {
+      inherit (prev.lixPackageSets.stable)
+        nixpkgs-review
+        nix-eval-jobs
+        nix-fast-build
+        colmena
+        ;
+    })
+  ];
 
   nix.package = pkgs.lixPackageSets.stable.lix;
-  
+
   home-manager.useGlobalPkgs = true;
   home-manager.backupFileExtension = "backup";
   home-manager.users.nightcat = import ./home-manager/home.nix;
 
   # Add extra Kernel modules
-  boot.kernelModules = ["uvcvideo"];
+  boot.kernelModules = [ "uvcvideo" ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.grub.device = "nodev";
@@ -41,7 +50,7 @@
   # networking.hostName = "nixos"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
 
   # Set your time zone.
   time.timeZone = "Europe/Rome";
@@ -52,25 +61,28 @@
 
   # Select internationalisation properties.
   # i18n.defaultLocale = "en_GB.UTF-8";
- 
+
   i18n.extraLocaleSettings = {
-    LANG="de_DE.UTF-8";
-    LC_CTYPE="de_DE.UTF-8";
-    LC_NUMERIC="de_DE.UTF-8";
-    LC_TIME="de_DE.UTF-8";
-    LC_COLLATE="de_DE.UTF-8";
-    LC_MONETARY="de_DE.UTF-8";
-    LC_MESSAGES="en_GB.UTF-8";
-    LC_PAPER="de_DE.UTF-8";
-    LC_NAME="de_DE.UTF-8";
-    LC_ADDRESS="de_DE.UTF-8";
-    LC_TELEPHONE="de_DE.UTF-8";
-    LC_MEASUREMENT="de_DE.UTF-8";
-    LC_IDENTIFICATION="de_DE.UTF-8";
+    LANG = "de_DE.UTF-8";
+    LC_CTYPE = "de_DE.UTF-8";
+    LC_NUMERIC = "de_DE.UTF-8";
+    LC_TIME = "de_DE.UTF-8";
+    LC_COLLATE = "de_DE.UTF-8";
+    LC_MONETARY = "de_DE.UTF-8";
+    LC_MESSAGES = "en_GB.UTF-8";
+    LC_PAPER = "de_DE.UTF-8";
+    LC_NAME = "de_DE.UTF-8";
+    LC_ADDRESS = "de_DE.UTF-8";
+    LC_TELEPHONE = "de_DE.UTF-8";
+    LC_MEASUREMENT = "de_DE.UTF-8";
+    LC_IDENTIFICATION = "de_DE.UTF-8";
   };
-  
+
   # Enable flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];  
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   console = {
     font = "Lat2-Terminus16";
@@ -100,27 +112,32 @@
     };
   };
 
-  
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.nightcat = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "video" "input" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+      "video"
+      "input"
+    ]; # Enable ‘sudo’ for the user.
     # openssh.authorizedKeys.keys = [
-        # TODO: Add SSH public keys here
+    # TODO: Add SSH public keys here
     # ];
     shell = pkgs.fish;
     packages = with pkgs; [
       tree
     ];
   };
-  
-  nixpkgs.config.allowUnfreePredicate = pkg:
+
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
     builtins.elem (lib.getName pkg) [
       "obsidian"
       "steam"
       "teams"
     ];
-  
+
   programs = {
     firefox.enable = true;
     ssh.startAgent = true;
@@ -133,11 +150,10 @@
     };
   };
 
-
-fonts= {
+  fonts = {
     fontconfig = {
       useEmbeddedBitmaps = true;
-      defaultFonts ={
+      defaultFonts = {
         monospace = [
           "JetBrainsMono Nerd Font"
         ];
@@ -146,7 +162,7 @@ fonts= {
     packages = with pkgs; [
       nerd-fonts.jetbrains-mono
     ];
-};
+  };
 
   # Keyring
   programs.seahorse.enable = true; # GUI for managing passwords and keys
@@ -176,7 +192,6 @@ fonts= {
     # vlc
   ];
 
-
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -199,38 +214,38 @@ fonts= {
         turbo = "auto";
       };
     };
-      openssh.enable = true;
-      # gnome.gnome-keyring.enable = true;
-      avahi = {
-        enable = true;
-        nssmdns4 = true;
-        openFirewall = true;
+    openssh.enable = true;
+    # gnome.gnome-keyring.enable = true;
+    avahi = {
+      enable = true;
+      nssmdns4 = true;
+      openFirewall = true;
+    };
+    printing.drivers = [ pkgs.epson-escpr ];
+    # Enable touchpad support (enabled default in most desktopManager).
+    libinput.enable = true;
+    pipewire = {
+      enable = true;
+      pulse.enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+    };
+    blueman.enable = true;
+    # Enable CUPS to print documents.
+    printing.enable = true;
+    xserver = {
+      xkb = {
+        layout = "de";
+        variant = "";
       };
-      printing.drivers = [pkgs.epson-escpr];
-      # Enable touchpad support (enabled default in most desktopManager).
-      libinput.enable = true;
-      pipewire = {
-        enable = true;
-        pulse.enable = true;
-        alsa.enable = true;
-        alsa.support32Bit = true;
-      };
-      blueman.enable = true;
-      # Enable CUPS to print documents.
-      printing.enable = true;
-      xserver = {
-        xkb = {
-          layout = "de";
-          variant = "";
-        }; 
-      };
-      displayManager.sddm = {
-        wayland.enable = true;
-        enable = true;
-      };
-      # allows session software to update device firmware on the local machine
-      fwupd.enable = true; 
-      # yubikey-agent.enable = true;
+    };
+    displayManager.sddm = {
+      wayland.enable = true;
+      enable = true;
+    };
+    # allows session software to update device firmware on the local machine
+    fwupd.enable = true;
+    # yubikey-agent.enable = true;
   };
 
   security = {

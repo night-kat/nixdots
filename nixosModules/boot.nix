@@ -3,7 +3,7 @@
 {
   # Add extra Kernel modules
   boot = {
-    kernelModules = ["uvcvideo"];
+    kernelModules = [ "uvcvideo" ];
     # Use lates kernel.
     kernelPackages = pkgs.linuxPackages_latest;
     # Use the systemd-boot EFI boot loader.

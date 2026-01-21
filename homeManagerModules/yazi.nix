@@ -5,9 +5,15 @@
     enable = true;
     enableFishIntegration = true;
     settings = {
-      log = { enabled = true; };
+      log = {
+        enabled = true;
+      };
       mgr = {
-        ratio = [1 4 3];
+        ratio = [
+          1
+          4
+          3
+        ];
         sort_by = "natural";
         sort_sensitive = true;
         sort_reverse = false;
@@ -17,7 +23,10 @@
         show_hidden = false;
         show_symlink = true;
         scrolloff = 5;
-        mouse_events = ["click" "scroll"];
+        mouse_events = [
+          "click"
+          "scroll"
+        ];
         title_format = "Yazi: {cwd}";
       };
       preview = {
@@ -30,12 +39,17 @@
         image_quality = 75;
         sixel_fraction = 15;
         ueberzug_scale = 1;
-        ueberzug_offset = [0 0 0 0];
+        ueberzug_offset = [
+          0
+          0
+          0
+          0
+        ];
       };
       opener = {
         # for the future: try to configure xdg-open.
         # use something like this:
-        # 
+        #
         # open = [
         # {
         #   run = ''xdg-open "$@"'';
@@ -44,19 +58,19 @@
         # }
         edit = [
           {
-            run   = "$EDITOR %s"; # change the environment variable in hyprland.conf under env
-            desc  = "$EDITOR";
+            run = "$EDITOR %s"; # change the environment variable in hyprland.conf under env
+            desc = "$EDITOR";
             block = true;
-            for   = "unix";
+            for = "unix";
           }
         ];
-        play = [ 
-          {  
+        play = [
+          {
             run = "mpv %s";
             desc = "MPV";
-            block = true; 
+            block = true;
             for = "linux";
-          } 
+          }
         ];
       };
     };

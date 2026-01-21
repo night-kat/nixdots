@@ -1,3 +1,5 @@
+{ ... }:
+
 {
   programs.waybar = {
     enable = true;
@@ -89,7 +91,13 @@
           format-charging = " {capacity}%";
           format-plugged = " {capacity}%";
           format-alt = "{time} {icon}";
-          format-icons = [" " " " " " " " " "];
+          format-icons = [
+            " "
+            " "
+            " "
+            " "
+            " "
+          ];
         };
 
         pulseaudio = {
@@ -384,6 +392,6 @@
         color: #c0caf5;
         border-bottom: 2px solid @yellow;
       }
-      '';
+    '';
   };
 }
