@@ -10,6 +10,16 @@
       ./hardware-configuration.nix
     ];
 
+   nixpkgs.overlays = [ (final: prev: {
+    inherit (prev.lixPackageSets.stable)
+      nixpkgs-review
+      nix-eval-jobs
+      nix-fast-build
+      colmena;
+    }) ];
+
+  nix.package = pkgs.lixPackageSets.stable.lix;
+  
   home-manager.useGlobalPkgs = true;
   home-manager.backupFileExtension = "backup";
   home-manager.users.nightcat = import ./home-manager/home.nix;
