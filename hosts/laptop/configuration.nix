@@ -37,22 +37,6 @@
   # i18n.defaultLocale = "en_GB.UTF-8";
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.nightcat = {
-    isNormalUser = true;
-    extraGroups = [
-      "wheel"
-      "networkmanager"
-      "video"
-      "input"
-    ]; # Enable ‘sudo’ for the user.
-    # openssh.authorizedKeys.keys = [
-    # TODO: Add SSH public keys here
-    # ];
-    shell = pkgs.fish;
-    packages = with pkgs; [
-      tree
-    ];
-  };
 
   nixpkgs.config.allowUnfreePredicate =
     pkg:
