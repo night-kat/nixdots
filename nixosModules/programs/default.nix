@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./console.nix
     ./firefox.nix
     ./fish.nix
     ./git.nix
