@@ -2,13 +2,18 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   home-manager.useGlobalPkgs = true;
   home-manager.backupFileExtension = "backup";
@@ -19,7 +24,7 @@
   # networking.hostName = "nixos"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
 
   # Set your time zone.
   time.timeZone = "Europe/Rome";
@@ -30,31 +35,32 @@
 
   # Select internationalisation properties.
   # i18n.defaultLocale = "en_GB.UTF-8";
- 
 
-
-  
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.nightcat = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "video" "input" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+      "video"
+      "input"
+    ]; # Enable ‘sudo’ for the user.
     # openssh.authorizedKeys.keys = [
-        # TODO: Add SSH public keys here
+    # TODO: Add SSH public keys here
     # ];
     shell = pkgs.fish;
     packages = with pkgs; [
       tree
     ];
   };
-  
-  nixpkgs.config.allowUnfreePredicate = pkg:
+
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
     builtins.elem (lib.getName pkg) [
       "obsidian"
       "steam"
       "teams"
     ];
-  }
-
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
