@@ -32,15 +32,7 @@
   # i18n.defaultLocale = "en_GB.UTF-8";
  
 
-  
-  # Enable flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];  
 
-  console = {
-    font = "Lat2-Terminus16";
-    # keyMap = "de";
-    useXkbConfig = true; # use xkb.options in tty
-  };
   
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.nightcat = {
@@ -61,7 +53,7 @@
       "steam"
       "teams"
     ];
-  };
+  }
 
 
   # Copy the NixOS configuration file and link it from the resulting system
