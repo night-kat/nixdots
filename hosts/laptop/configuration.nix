@@ -31,14 +31,6 @@
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
 
-  nixpkgs.config.allowUnfreePredicate =
-    pkg:
-    builtins.elem (lib.getName pkg) [
-      "obsidian"
-      "steam"
-      "teams"
-    ];
-
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
   # accidentally delete configuration.nix.
