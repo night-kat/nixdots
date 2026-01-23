@@ -4,14 +4,14 @@
   imports = [
     ./boot.nix
     ./fonts.nix
-    ./hardware.nix
+    ./bluetoothSettings.nix
     ./locale.nix
     ./networksettings.nix
-    ./nixsettings.nix
-    ./overlays.nix
+    ./nixSettings.nix
+    ./lix.nix
     ./systemSettings.nix
     ./programs/default.nix
     ./services/default.nix
-    ./systempPackages.nix
+    ./systemPackages.nix
   ]
 }
