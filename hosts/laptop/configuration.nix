@@ -15,9 +15,7 @@
     ./hardware-configuration.nix
   ];
 
-  home-manager.useGlobalPkgs = true;
-  home-manager.backupFileExtension = "backup";
-  home-manager.users.nightcat = import ./home-manager/home.nix;
+  home-manager.users.nightcat = ./home-manager/home.nix;
 
   # Set your time zone.
   time.timeZone = "Europe/Rome";

@@ -4,7 +4,7 @@
   imports = [
     ./pkgs.nix
     ./waybar.nix
-    ./hyprland/default.nix
+    ./hyprland
     ./ssh.nix
     ./mpv.nix
     ./cursor.nix

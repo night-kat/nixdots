@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./home-manager.nix
     ./boot.nix
     ./fonts.nix
     ./bluetoothSettings.nix
@@ -10,8 +11,8 @@
     ./nixSettings.nix
     ./lix.nix
     ./systemSettings.nix
-    ./programs/default.nix
-    ./services/default.nix
+    ./programs
+    ./services
     ./systemPackages.nix
-  ]
+  ];
 }

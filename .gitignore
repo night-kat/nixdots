@@ -1,0 +1,4 @@
+# Symlink created by `nix build` and similar commands.
+result
+# NixOS VM state
+nixos.qcow2
