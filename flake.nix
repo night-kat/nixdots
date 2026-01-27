@@ -7,23 +7,29 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { nixpkgs, home-manager, ... } @ inputs: {
+  outputs = { nixpkgs, home-manager, ... }@inputs: {
     nixosConfigurations = {
-      nixos = nixpkgs.lib.nixosSystem {
+      laptop = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs; };
         system = "x86_64-linux";
         modules = [
-          ./configuration.nix
           home-manager.nixosModules.home-manager
+          ./hosts/laptop/configuration.nix
+          ./nixosModules
           {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.nightcat = ./home-manager/home.nix;
-
-            # Optionally, use home-manager.extraSpecialArgs to pass
-            # arguments to home.nix
+             home-manager.users.nightcat = ./hosts/laptop/home-manager/home.nix;
+             home-manager.useGlobalPkgs = true;
+             home-manager.useUserPackages = true;
+      
+          }
+          # Optionally, use home-manager.extraSpecialArgs to pass
+          # arguments to home.nix
+          {
+            home-manager.extraSpecialArgs = { inherit inputs; };
           }
         ];
       };
+      homeManagerModules.default = ./homeManagerModules;
     };
   };
 }
