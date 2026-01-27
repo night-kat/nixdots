@@ -19,43 +19,43 @@
 
   # Set your time zone.
   time.timeZone = "Europe/Rome";
-
+  programs.hyprland.enable = true;
     custom = {
           boot = {
       enable = true;
       # latestKernel = true;
       grub.enable = true;
     };
-    systemLevelFish.enable = true;
-    console.enable = true;
-    seahorse.enable = true;
-    ssh.enable = true;
-    auto-cpufreq.enable = true;
-    avahiService.enable = true;
-    bluemanService.enable = true;
-    fwupdService.enable = true;
-    germanKeyboardLayout.enable = true;
-    libinputService.touchPadSupport = true;
-    openssh.enable = true;
-    pcscd.enable = true;
-    pipewire.enable = true;
-    printing = {
-      enable = true;
-      epsonDrivers.enable = true;
-    };
-    sddm.enable = true;
-    bluetoothSettings.enable = true;
-    fonts = {
-      enable = true;
-      enableFira-code = true;
-    };
-    lix.enable = true;
-    locale.enableGerman = true;
-    networkSettings.enable = true;
-    nixSettings.enable = true;
-    unfreePackages.enable = true;
-    systemPackages.enable = true;
-    systemSettings.enable = true;
+      systemLevelFish.enable = true;
+      console.enable = true;
+      seahorse.enable = true;
+      ssh.enable = true;
+      auto-cpufreq.enable = true;
+      avahiService.enable = true;
+      bluemanService.enable = true;
+      fwupdService.enable = true;
+      germanKeyboardLayout.enable = true;
+      libinputService.touchPadSupport = true;
+      openssh.enable = true;
+      pcscd.enable = true;
+      pipewire.enable = true;
+      printing = {
+        enable = true;
+        epsonDrivers.enable = true;
+      };
+      sddm.enable = true;
+      bluetoothSettings.enable = true;
+      fonts = {
+        enable = true;
+        enableFira-code = true;
+      };
+      lix.enable = true;
+      locale.enableGerman = true;
+      networkSettings.enable = true;
+      nixSettings.enable = true;
+      unfreePackages.enable = true;
+      systemPackages.enable = true;
+      systemSettings.enable = true;
     };
   networking.hostName = "nightcat"; # Define your hostname
 

@@ -6,5 +6,6 @@
     ./seahorse.nix
     ./ssh.nix
     ./fish.nix
+    ./hyprland.nix
   ];
 }
