@@ -3,7 +3,6 @@
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
 {
-  config,
   lib,
   pkgs,
   ...
@@ -13,25 +12,53 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ./users.nix
   ];
 
-  home-manager.users.nightcat = ./home-manager/home.nix;
+  environment.pathsToLink = [ "/share/applications" "/share/xdg-desktop-portal" ];
 
   # Set your time zone.
   time.timeZone = "Europe/Rome";
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+    custom = {
+          boot = {
+      enable = true;
+      # latestKernel = true;
+      grub.enable = true;
+    };
+    systemLevelFish.enable = true;
+    console.enable = true;
+    seahorse.enable = true;
+    ssh.enable = true;
+    auto-cpufreq.enable = true;
+    avahiService.enable = true;
+    bluemanService.enable = true;
+    fwupdService.enable = true;
+    germanKeyboardLayout.enable = true;
+    libinputService.touchPadSupport = true;
+    openssh.enable = true;
+    pcscd.enable = true;
+    pipewire.enable = true;
+    printing = {
+      enable = true;
+      epsonDrivers.enable = true;
+    };
+    sddm.enable = true;
+    bluetoothSettings.enable = true;
+    fonts = {
+      enable = true;
+      enableFira-code = true;
+    };
+    lix.enable = true;
+    locale.enableGerman = true;
+    networkSettings.enable = true;
+    nixSettings.enable = true;
+    unfreePackages.enable = true;
+    systemPackages.enable = true;
+    systemSettings.enable = true;
+    };
+  networking.hostName = "nightcat"; # Define your hostname
 
-  # Select internationalisation properties.
-  # i18n.defaultLocale = "en_GB.UTF-8";
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-
-  # Copy the NixOS configuration file and link it from the resulting system
-  # (/run/current-system/configuration.nix). This is useful in case you
-  # accidentally delete configuration.nix.
   system.copySystemConfiguration = false;
 
   # This option defines the first version of NixOS you have installed on this particular machine,
@@ -39,17 +66,6 @@
   #
   # Most users should NEVER change this value after the initial install, for any reason,
   # even if you've upgraded your system to a new NixOS release.
-  #
-  # This value does NOT affect the Nixpkgs version your packages and OS are pulled from,
-  # so changing it will NOT upgrade your system - see https://nixos.org/manual/nixos/stable/#sec-upgrading for how
-  # to actually do that.
-  #
-  # This value being lower than the current NixOS release does NOT mean your system is
-  # out of date, out of support, or vulnerable.
-  #
-  # Do NOT change this value unless you have manually inspected all the changes it would make to your configuration,
-  # and migrated your data accordingly.
-  #
-  # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
   system.stateVersion = "25.05"; # Did you read the comment?
 }
+

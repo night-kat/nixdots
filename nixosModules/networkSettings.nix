@@ -1,9 +1,8 @@
-{ lib, config, pkgs, ... }:
+{ lib, config, pkgs, options, ... }:
 
 {
-  option = {
-    custom.networkSettings.enable = 
-      lib.mkEnableOption "Enable common network settings"
+  options = {
+    custom.networkSettings.enable = lib.mkEnableOption "Enable common network settings";
   };
 
   config = lib.mkIf config.custom.networkSettings.enable {

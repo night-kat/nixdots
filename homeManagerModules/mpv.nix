@@ -1,11 +1,11 @@
-{ pkgs, ... }:
+{ pkgs, lib, options, config, ... }:
 
 {
   options = {
-    myMpv.enable = lib.mkEnableOption "Enable mpv player with some settings"
-  }
+    custom.mpv.enable = lib.mkEnableOption "Enable mpv player with some settings";
+  };
 
-  config = lib.mkIf config.myMpv.enable {  
+  config = lib.mkIf config.custom.mpv.enable {  
     programs.mpv = {
       enable = true;
       scripts = with pkgs.mpvScripts; [

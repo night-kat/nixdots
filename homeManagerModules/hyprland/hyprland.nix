@@ -1,13 +1,15 @@
 {
   hostName,
   pkgs,
+  lib,
+  options,
+  config,
   ...
 }:
 
 {
   options = {
-    custom.myHyprland.enable =
-      lib.mkEnableOption "Enable shared hyprland config"
+    custom.myHyprland.enable = lib.mkEnableOption "Enable shared hyprland config";
   };
 
   config = lib.mkIf config.custom.myHyprland.enable {
@@ -23,9 +25,9 @@
 
         # Rules for monitors
         monitor = [
-          # TODO: Make per host
+          # TODO: make some fancy options. link later
           # Laptop screen
-          # "eDP-1,2256x1504@140,auto,1.57, bitdepth, 10, cm, auto, sdrbrightness, 1.2, sdrsaturation, 0"
+          "eDP-1,2256x1504@140,auto,1.57, bitdepth, 10, cm, auto, sdrbrightness, 1.2, sdrsaturation, 0"
           # Any random screen/fallback rule
           ", preferred, auto, auto"
         ];

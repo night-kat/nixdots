@@ -1,12 +1,14 @@
 { pkgs, config, lib, ... }:
 
+let 
+  cfg = config.custom.bluetoothSettings;
+in
 {
-  options = {
-    custom.bluetoothSettings.enable =
-      lib.mkEnableOption "Enable some common bluetooth settings"
+  options.custom.bluetoothSettings = {
+    enable = lib.mkEnableOption "Enable some common bluetooth settings";
   };
 
-  config = lib.mkIf config.custom.bluetoothSettings.enable{    
+  config = lib.mkIf cfg.enable {    
     hardware.bluetooth = {
       enable = true;
       powerOnBoot = true;

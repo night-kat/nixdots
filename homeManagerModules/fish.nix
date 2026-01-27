@@ -2,7 +2,7 @@
 
 {
   options = {
-    custom.fishWithAliases.enable = lib.mkEnableOption "Enable fish shell with some aliases"
+    custom.fishWithAliases.enable = lib.mkEnableOption "Enable fish shell with some aliases";
   };
 
   config = lib.mkIf config.custom.fishWithAliases.enable {

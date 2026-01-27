@@ -1,8 +1,8 @@
-{ lib, pkgs... }:
+{ lib, pkgs, config, options, ... }:
 
 {
   options = {
-    custom.unfreePackages.enable = lib.mkEnableOption "Allow some unfree packages"
+    custom.unfreePackages.enable = lib.mkEnableOption "Allow some unfree packages";
   };
 
   config = lib.mkIf config.custom.unfreePackages.enable {

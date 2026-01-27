@@ -4,14 +4,14 @@
   imports = [
     ./autoCpuFreq.nix
     ./avahi.nix
-    ./blueMan.nix
+    ./blueman.nix
     ./fwupd.nix
     ./libinput.nix
-    ./openSsh.nix
-    ./pcsd.nix
-    ./pipeWire.nix
+    ./openssh.nix
+    ./pcscd.nix
+    ./pipewire.nix
     ./printing.nix
     ./sddm.nix
-    ./xserver.nix
-  ]
+    ./kbLayout.nix
+  ];
 }

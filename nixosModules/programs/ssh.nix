@@ -1,10 +1,13 @@
-{ ... }:
+{ pkgs, lib, config, options, ... }:
 
 {
-  programs.ssh = {
-    startAgent = true;
-    enable = true;
-    enableDefaultConfig = false;
-    matchBlocks.github_key.addKeysToAgent = "yes";
+  options = {
+    custom.ssh.enable = lib.mkEnableOption "Enable ssh-agent system wide";
+  };
+
+  config = lib.mkIf config.custom.ssh.enable {  
+    programs.ssh = {
+      startAgent = true;
+    };
   };
 }

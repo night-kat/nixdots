@@ -1,9 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, lib, options, config, ... }:
 
 {
   options = {
-    custom.enablelix.enable = 
-      lib.mkEnableOption "Enable the lix language, a community driven implementation of nix"
+    custom.lix.enable = lib.mkEnableOption "Enable the lix language, a community driven implementation of nix";
   };
 
   config = lib.mkIf config.custom.lix.enable {
@@ -13,8 +12,7 @@
         nixpkgs-review
         nix-eval-jobs
         nix-fast-build
-        colmena
-        ;
+        colmena;
     })
   ];
 

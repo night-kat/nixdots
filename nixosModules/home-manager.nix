@@ -1,10 +1,16 @@
-{
+{ inputs, ... }: {
+
+  # may look a bit different
   home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    backupFileExtension = "backup";
-    sharedModules = [
-      ../homeManagerModules
-    ];
+    extraSpecialArgs = { inherit inputs; };
+    users = {
+      "nightcat" = import ./../hosts/laptop/home-manager/home.nix;
+      "nightcat" = {
+        imports = [
+          ./hosts/laptop/home-manager/home.nix
+          inputs.self.outputs.homeManagerModules.default
+        ];
+      };
+    };
   };
 }

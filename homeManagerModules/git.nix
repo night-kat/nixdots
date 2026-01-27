@@ -1,9 +1,8 @@
-{ ... }:
+{ pkgs, lib, config, options, ... }:
 
 {
   options = {
-    custom.gitConfig.enable =
-      lib.mkEnableOption "Enable git with preconfigured email and name"
+    custom.gitConfig.enable = lib.mkEnableOption "Enable git with preconfigured email and name";
   };
 
   config = lib.mkIf config.custom.gitConfig.enable {

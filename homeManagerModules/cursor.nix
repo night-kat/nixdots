@@ -2,8 +2,7 @@
 
 {
   options =  {
-    custom.myCursor.enable =
-      lib.mkEnableOption "Enable cursor with preset theme"
+    custom.myCursor.enable = lib.mkEnableOption "Enable cursor with preset theme";
   };
 
   config = lib.mkIf config.custom.myCursor.enable {

@@ -1,8 +1,8 @@
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, lib, config, options, ... }:
 
 {
   options = {
-    custom.sharedPackages.enable = lib.mkEnableOption "Enable a list of shared programs"
+    custom.sharedPackages.enable = lib.mkEnableOption "Enable a list of shared programs";
   };
 
   config = lib.mkIf config.custom.sharedPackages.enable {
