@@ -1,15 +1,16 @@
-{ config, lib, pkgs, ...}:
+{ config, lib, pkgs, hostName, ...}:
 
 {
   imports = [
     ./../../../homeManagerModules
   ];
+
   home.stateVersion = "25.05"; # Don't change this
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
   ];
-  
+
   programs.git = {
     signing = {
       format = "ssh";
@@ -20,7 +21,10 @@
 
   custom = {
     fishWithAliases.enable = true;
-    myHyprland.enable = true;
+    myHyprland= {
+      enable = true;
+      laptopMonitor.enable = true;
+    };
     hyprpaper.enable = true;
     myCursor.enable = true;
     firefox.enable = true;
