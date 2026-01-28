@@ -6,20 +6,21 @@ in
 {
   options.custom.fonts = {
     enable = lib.mkEnableOption "Enable font configuration";
-    enableFira-code = lib.mkOption {
+    enableNerdFonts = lib.mkOption {
       type = lib.types.bool;
       default = false;
-      description = "Enable firacode and firacode-symbols";
+      description = "Enable firacode";
     };
   };
 
   config = lib.mkIf cfg.enable {
     fonts = {
       fontconfig.useEmbeddedBitmaps = true;
-      packages = with pkgs; 
-      lib.optionals cfg.enableFira-code [
-        fira-code
-        fira-code-symbols
+      packages = with pkgs; lib.mkIf cfg.enableNerdFonts [
+        nerd-fonts.fira-code
+        nerd-fonts.symbols-only
+        nerd-fonts.departure-mono
+        nerd-fonts.droid-sans-mono
       ];
     };
   };
