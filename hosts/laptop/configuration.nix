@@ -47,7 +47,6 @@
     bluetoothSettings.enable = true;
     fonts = {
       enable = true;
-      enableNerdFonts = true;
     };
     lix.enable = true;
     locale.enableGerman = true;

@@ -6,21 +6,32 @@ in
 {
   options.custom.fonts = {
     enable = lib.mkEnableOption "Enable font configuration";
-    enableNerdFonts = lib.mkOption {
-      type = lib.types.bool;
-      default = false;
-      description = "Enable firacode";
-    };
   };
 
   config = lib.mkIf cfg.enable {
     fonts = {
-      fontconfig.useEmbeddedBitmaps = true;
-      packages = with pkgs; lib.mkIf cfg.enableNerdFonts [
+      fontconfig = {
+        useEmbeddedBitmaps = true;
+        defaultFonts = {
+          monospace = [
+            "Monaspace Radon"
+            "FiraCode Mono"
+          ];
+          emoji = [
+            "Symbols Nerd Font"
+          ];
+        };
+      };
+
+      packages = with pkgs;
+      [
+        hasklig
+        nerd-fonts.symbols-only # symbols icon only
         nerd-fonts.fira-code
-        nerd-fonts.symbols-only
-        nerd-fonts.departure-mono
-        nerd-fonts.droid-sans-mono
+        monaspace
+        noto-fonts
+        noto-fonts-color-emoji
+        google-fonts
       ];
     };
   };
