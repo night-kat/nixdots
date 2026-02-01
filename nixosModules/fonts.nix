@@ -14,8 +14,7 @@ in
         useEmbeddedBitmaps = true;
         defaultFonts = {
           monospace = [
-            "Monaspace Radon"
-            "FiraCode Mono"
+            "Fira Code"
           ];
           emoji = [
             "Symbols Nerd Font"
