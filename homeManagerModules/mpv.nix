@@ -17,7 +17,7 @@
         # TODO: See if it should be per host or shared
         # temporary fix for mpv enabling hdr in fullscreen mode
         # if HDR is on, it causes everything to look dull.
-        # target-colorspace-hint-mode = "source";
+        target-colorspace-hint-mode = "source";
         # perfect settings for framework laptop
         # contrast = "0";
         # brightness = "0";
