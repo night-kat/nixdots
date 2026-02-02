@@ -25,6 +25,7 @@
     myHyprland= {
       enable = true;
       laptopMonitor.enable = true;
+      hasLidSwitch = true;
     };
     hyprpaper.enable = true;
     myCursor.enable = true;

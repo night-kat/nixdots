@@ -6,7 +6,9 @@
   config,
   ...
 }:
-
+let
+  cfg = config.custom.myHyprland;
+in
 {
   options = {
     custom.myHyprland.enable = lib.mkEnableOption "Enable shared hyprland config";
@@ -15,9 +17,14 @@
       default = false;
       description = "Enable monitor configuration for laptop screen";
     };
+    custom.myHyprland.hasLidSwitch = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "Enable the lid switch for laptops, will suspend";
+    };
   };
 
-  config = lib.mkIf config.custom.myHyprland.enable {
+  config = lib.mkIf cfg.enable {
     wayland.windowManager.hyprland = {
       enable = true;
       systemd.enable = true;
@@ -33,7 +40,7 @@
           # TODO: make some fancy options. link later
         monitor = 
           # Laptop screen
-          lib.optionals config.custom.myHyprland.laptopMonitor.enable ["eDP-1,2256x1504@140,auto,1.57, bitdepth, 10, cm, auto, sdrbrightness, 1.2, sdrsaturation, 0"] 
+          lib.optionals cfg.laptopMonitor.enable ["eDP-1,2256x1504@140,auto,1.57, bitdepth, 10, cm, auto, sdrbrightness, 1.2, sdrsaturation, 0"] 
           ++
           # Any random screen/fallback rule
           [", preferred, auto, auto"];
@@ -185,6 +192,7 @@
 
           # clipboard functionality
           "SUPER, V, exec, alacritty --class clipse -e clipse"
+          
         ];
 
         bindm = [
@@ -199,7 +207,9 @@
           ", XF86AudioPause, exec, playerctl play-pause"
           ", XF86AudioPlay, exec, playerctl play-pause"
           ", XF86AudioPrev, exec, playerctl previous"
-        ];
+        ] ++ lib.optionals cfg.hasLidSwitch [
+            ", switch:on:[Lid Switch], exec, systemctl suspend" # Enable suspend on closing the laptop
+          ];
 
         # Laptop multimedia keys for volume and LCD brightness
         bindel = [
