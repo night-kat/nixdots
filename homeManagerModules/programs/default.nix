@@ -6,8 +6,8 @@
     ./firefox.nix
     ./fish.nix
     ./git.nix
+    ./gitui.nix
     ./mpv.nix
-    ./programs.nix
     ./ssh.nix
     ./waybar.nix
     ./yazi.nix
