@@ -21,6 +21,7 @@
   
    wayland.windowManager.hyprland.enable = true;
   custom = {
+    gitui.enable = true;
     fishWithAliases.enable = true;
     myHyprland= {
       enable = true;

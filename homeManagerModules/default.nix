@@ -11,8 +11,9 @@
     ./firefox.nix
     ./fish.nix
     ./git.nix
-    ./programs.nix
+    ./programs.nix # TODO: Seperate out programs, put into ./programs directory
     ./yazi.nix
+    ./programs
     # ./nvim.nix
   ];
 }
