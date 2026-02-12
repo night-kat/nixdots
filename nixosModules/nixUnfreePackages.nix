@@ -1,4 +1,10 @@
-{ lib, pkgs, config, options, ... }:
+{
+  lib,
+  pkgs,
+  config,
+  options,
+  ...
+}:
 
 {
   options = {
@@ -6,12 +12,13 @@
   };
 
   config = lib.mkIf config.custom.unfreePackages.enable {
-    nixpkgs.config.allowUnfreePredicate = pkg:
-    builtins.elem (lib.getName pkg) [
-      "obsidian"
-      # TODO: Steam is per host basis, remove teams eventually
-      # "steam"
-      "teams"
-    ];
+    nixpkgs.config.allowUnfreePredicate =
+      pkg:
+      builtins.elem (lib.getName pkg) [
+        "obsidian"
+        # TODO: Steam is per host basis, remove teams eventually
+        # "steam"
+        "teams"
+      ];
   };
 }

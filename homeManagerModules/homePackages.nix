@@ -1,4 +1,11 @@
-{ pkgs, inputs, lib, config, options, ... }:
+{
+  pkgs,
+  inputs,
+  lib,
+  config,
+  options,
+  ...
+}:
 
 {
   options = {
@@ -56,6 +63,7 @@
       resvg # for SVG preview
       tor-browser
       calibre
+      nixfmt # Nix code formatter
     ];
   };
 }

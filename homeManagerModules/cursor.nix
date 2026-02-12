@@ -1,7 +1,12 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
 {
-  options =  {
+  options = {
     custom.myCursor.enable = lib.mkEnableOption "Enable cursor with preset theme";
   };
 

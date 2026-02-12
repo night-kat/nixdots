@@ -1,8 +1,15 @@
-{ pkgs, lib, options, config, ... }:
+{
+  pkgs,
+  lib,
+  options,
+  config,
+  ...
+}:
 
-let 
+let
   cfg = config.custom.systemPackages;
-in {
+in
+{
   options.custom.systemPackages = {
     enable = lib.mkEnableOption "A list of useful packages installed in the system profile";
   };

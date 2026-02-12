@@ -1,4 +1,10 @@
-{ pkgs, lib, config, options, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  options,
+  ...
+}:
 
 {
   options.custom.auto-cpufreq = {
@@ -22,4 +28,4 @@
       };
     };
   };
- }
+}

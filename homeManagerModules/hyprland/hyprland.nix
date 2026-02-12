@@ -6,6 +6,7 @@
   config,
   ...
 }:
+
 let
   cfg = config.custom.myHyprland;
 in
@@ -37,13 +38,15 @@ in
 
         # Rules for monitors
 
-          # TODO: make some fancy options. link later
-        monitor = 
+        # TODO: make some fancy options. link later
+        monitor =
           # Laptop screen
-          lib.optionals cfg.laptopMonitor.enable ["eDP-1,2256x1504@140,auto,1.57, bitdepth, 10, cm, auto, sdrbrightness, 1.2, sdrsaturation, 0"] 
+          lib.optionals cfg.laptopMonitor.enable [
+            "eDP-1,2256x1504@140,auto,1.57, bitdepth, 10, cm, auto, sdrbrightness, 1.2, sdrsaturation, 0"
+          ]
           ++
           # Any random screen/fallback rule
-          [", preferred, auto, auto"];
+          [ ", preferred, auto, auto" ];
 
         # Programs
         "$terminal" = "alacritty";
@@ -121,6 +124,18 @@ in
         ];
 
         "$mainMod" = "SUPER";
+
+        # Requires playerctl
+        bindl = [
+          ", XF86AudioNext, exec, playerctl next"
+          ", XF86AudioPause, exec, playerctl play-pause"
+          ", XF86AudioPlay, exec, playerctl play-pause"
+          ", XF86AudioPrev, exec, playerctl previous"
+        ]
+        ++ lib.optionals cfg.hasLidSwitch [
+          ", switch:on:[Lid Switch], exec, systemctl suspend" # Enable suspend on closing the laptop
+        ];
+
         bind = [
           # Move focus and change windows around
           "$mainMod, Q, exec, $terminal"
@@ -192,7 +207,7 @@ in
 
           # clipboard functionality
           "SUPER, V, exec, alacritty --class clipse -e clipse"
-          
+
         ];
 
         bindm = [
@@ -200,16 +215,6 @@ in
           "$mainMod, mouse:273, resizewindow"
           "$mainMod, v, resizewindow"
         ];
-
-        # Requires playerctl
-        bindl = [
-          ", XF86AudioNext, exec, playerctl next"
-          ", XF86AudioPause, exec, playerctl play-pause"
-          ", XF86AudioPlay, exec, playerctl play-pause"
-          ", XF86AudioPrev, exec, playerctl previous"
-        ] ++ lib.optionals cfg.hasLidSwitch [
-            ", switch:on:[Lid Switch], exec, systemctl suspend" # Enable suspend on closing the laptop
-          ];
 
         # Laptop multimedia keys for volume and LCD brightness
         bindel = [

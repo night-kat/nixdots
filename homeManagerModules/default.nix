@@ -5,8 +5,8 @@
     ./programs
     ./hyprland
     # Empty for now
-    # ./services 
+    # ./services
     ./homePackages.nix
     ./cursor.nix
-   ];
+  ];
 }
