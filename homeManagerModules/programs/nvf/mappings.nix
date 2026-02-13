@@ -208,14 +208,16 @@
       mode = "n";
       key = "<leader>/";
       action = "gcc";
+      noremap = false;
       desc = "Toggle Comment";
     }
 
     {
       mode = "v";
       key = "<leader>/";
-      action = "<cmd>gc<Enter>";
-      desc = "Toggle comment";
+      action = "gc";
+      noremap = false;
+      desc = "Toggle comment in visual mode";
     }
 
     # nvimtree
