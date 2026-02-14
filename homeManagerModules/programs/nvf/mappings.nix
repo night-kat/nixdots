@@ -235,12 +235,76 @@
       desc = "nvimtree focus window";
     }
 
-    # #telescope
-    # {
-    #   mode = "n";
-    #   leader = "<leader>ff";
-    #   action = "builtin.find_files";
-    #   desc = "Telescope find files";
-    # }
+    #telescope
+    {
+      mode = "n";
+      key = "<leader>fw";
+      action = "<cmd>Telescope live_grep<Enter>";
+      desc = "telescope live grep";
+    }
+
+    {
+      mode = "n";
+      key = "<leader>fb";
+      action = "<cmd>Telescope buffers<Enter>";
+      desc = "telescope find buffer";
+    }
+
+    {
+      mode = "n";
+      key = "<leader>fh";
+      action = "<cmd>Telescope help_tags<Enter>";
+      desc = "telescope help page";
+    }
+
+    {
+      mode = "n";
+      key = "<leader>ma";
+      action = "<cmd>Telescope marks<Enter>";
+      desc = "telescope find marks";
+    }
+
+    {
+      mode = "n";
+      key = "<leader>fo";
+      action = "<cmd>Telescope oldfiles<Enter>";
+      desc = "telescope find oldfiles";
+    }
+
+    {
+      mode = "n";
+      key = "<leader>fz";
+      action = "<cmd>Telescope current_buffer_fuzzy_find<Enter>";
+      desc = "telescope find in current buffer";
+    }
+
+    {
+      mode = "n";
+      key = "<leader>cm";
+      action = "<cmd>Telescope git_commits<Enter>";
+      desc = "telescope git commits";
+    }
+
+    {
+      mode = "n";
+      key = "<leader>gt";
+      action = "<cmd>Telescope git_status<Enter>";
+      desc = "telescope git status";
+    }
+
+    {
+      mode = "n";
+      key = "<leader>ff";
+      action = "<cmd>Telescope find_files<Enter>";
+      desc = "telescope find files";
+    }
+
+    {
+      mode = "n";
+      key = "<leader>fa";
+      action = "<cmd>Telescope find_files follow=true no_ignore=true hidden=true<Enter>";
+      desc = "telescope find all files";
+    }
+    
   ];
 }
