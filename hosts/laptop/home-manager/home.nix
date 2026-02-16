@@ -29,6 +29,7 @@
   custom = {
     nvf.enable = true;
     neovide.enable = true;
+    gitui.enable = true;
     fishWithAliases.enable = true;
     myHyprland = {
       enable = true;

@@ -5,6 +5,7 @@
 {
   lib,
   pkgs,
+  inputs,
   ...
 }:
 
@@ -14,6 +15,17 @@
     ./hardware-configuration.nix
     ./users.nix
   ];
+
+  # Automatic updates
+  system.autoUpgrade = {
+    enable = true;
+    flake = inputs.self.outPath;
+    flags = [
+      "-L" # print build logs
+    ];
+    dates = "02:00";
+    randomizedDelaySec = "45min";
+  };
 
   environment.pathsToLink = [ "/share/applications" "/share/xdg-desktop-portal" ];
 
@@ -25,6 +37,7 @@
     enable = true;
     # latestKernel = true;
     grub.enable = true;
+
   };
     systemLevelFish.enable = true;
     console.enable = true;
