@@ -306,5 +306,50 @@
       desc = "telescope find all files";
     }
     
+    # terminal
+    {
+      mode =  "t";
+      key = "<C-x>";
+      action = "<C-\\><C-N>";
+      desc = "terminal escape terminal mode";
+    }
+
+    # new terminals
+    {
+      mode = "n";
+      key = "<leader>h";
+      action = "<cmd>ToggleTerm direction=horizontal<Enter>";
+      desc = "new horizontal terminal";
+    }
+
+    {
+      mode = "n";
+      key = "<leader>v";
+      action = "<cmd>ToggleTerm direction=vertical<Enter>";
+      desc = "new vertical terminal";
+    }
+
+    {
+      mode = "n";
+      key = "<A-i>";
+      action = "<cmd>ToggleTerm direction=float";
+      desc = "new floating terminal";
+    }
+    
+    # whichkey
+    {
+      mode = "n";
+      key = "<leader>wK";
+      action = "<cmd>WhichKey <Enter>";
+      desc = "whichkey all keymaps";
+    }
+
+    # can#t figure out how to make this work
+    /* {
+      mode = "n";
+      key = "<leader>wk";
+      action = ''vim.cmd("WhichKey " .. vim.fn.input("WhichKey: "))'';
+      desc = "whichkey query lookup";
+     */}
   ];
 }
