@@ -59,6 +59,11 @@ in
               lsp.enable = true;
               treesitter.enable = true;
             };
+            nix = {
+              enable = true;
+              lsp.enable = true;
+              treesitter.enable = true;
+            };
           };
         };
       };
