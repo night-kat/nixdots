@@ -343,6 +343,18 @@
       action = "<cmd>WhichKey <Enter>";
       desc = "whichkey all keymaps";
     }
+    # better indenting
+    {
+      mode = "v";
+      key = "<";
+      action = "<gv";
+    }
+
+    {
+      mode = "v";
+      key = ">";
+      action = ">gv";
+    }
 
     # can#t figure out how to make this work
     /* {
@@ -350,6 +362,6 @@
       key = "<leader>wk";
       action = ''vim.cmd("WhichKey " .. vim.fn.input("WhichKey: "))'';
       desc = "whichkey query lookup";
-     */}
+     } */
   ];
 }
