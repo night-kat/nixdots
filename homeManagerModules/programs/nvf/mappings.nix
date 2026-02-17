@@ -332,7 +332,7 @@
     {
       mode = "n";
       key = "<A-i>";
-      action = "<cmd>ToggleTerm direction=float";
+      action = "<cmd>ToggleTerm direction=float<Enter>";
       desc = "new floating terminal";
     }
     
@@ -357,11 +357,11 @@
     }
 
     # can#t figure out how to make this work
-    /* {
-      mode = "n";
-      key = "<leader>wk";
-      action = ''vim.cmd("WhichKey " .. vim.fn.input("WhichKey: "))'';
-      desc = "whichkey query lookup";
-     } */
+    # {
+    #   mode = "n";
+    #   key = "<leader>wk";
+    #   action = ''lua function() vim.cmd("WhichKey " .. vim.fn.input "WhichKey: ") end'';
+    #   desc = "whichkey query lookup";
+    # }
   ];
 }
