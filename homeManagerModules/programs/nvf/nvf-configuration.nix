@@ -22,6 +22,10 @@ in {
       # most settings are documented in the appendix
       settings = {
         vim = {
+          spellcheck = {
+            enable = true;
+          };
+
           lsp = {
             # This must be enabled for the language modules to hook into
             # the LSP API.
@@ -171,7 +175,27 @@ in {
             cellular-automaton.enable = false;
           };
 
+          ui = {
+            borders.enable = true;
+            noice.enable = true;
+            colorizer.enable = true;
+            modes-nvim.enable = false; # the theme looks terrible with catppuccin
+            illuminate.enable = true;
+            smartcolumn = {
+              enable = true;
+              setupOpts.custom_colorcolumn = {
+                # this is a freeform module, it's `buftype = int;` for configuring column position
+                nix = "110";
+                ruby = "120";
+                java = "130";
+                go = ["90" "130"];
+              };
+            };
+            fastaction.enable = true;
+          };
+
           languages = {
+            haskell.enable = true;
             rust = {
               enable = true;
               # lsp = {
