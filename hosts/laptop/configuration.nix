@@ -30,6 +30,7 @@
     console.enable = true;
     seahorse.enable = true;
     ssh.enable = true;
+    usenet.enable = true;
     auto-cpufreq.enable = true;
     avahiService.enable = true;
     bluemanService.enable = true;

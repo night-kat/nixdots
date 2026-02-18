@@ -12,6 +12,7 @@
       # TODO: Steam is per host basis, remove teams eventually
       # "steam"
       "teams"
+      "unrar" # required for sabnzbd
     ];
   };
 }

@@ -56,6 +56,8 @@
       resvg # for SVG preview
       tor-browser
       calibre
+      sabnzbd # Usenet downloader
+      unzip
     ];
   };
 }
