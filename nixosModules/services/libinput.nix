@@ -1,10 +1,17 @@
-{ pgks, lib, options, config, ... }:
+{
+  pgks,
+  lib,
+  options,
+  config,
+  ...
+}:
 
-let 
+let
   cfg = config.custom.libinputService;
-in {
+in
+{
   options.custom.libinputService = {
-    touchPadSupport = lib.mkOption{
+    touchPadSupport = lib.mkOption {
       type = lib.types.bool;
       default = false;
       description = "Enable touchpad support (enabled default in most desktopManager)";

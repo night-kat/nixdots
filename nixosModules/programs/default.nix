@@ -7,5 +7,6 @@
     ./ssh.nix
     ./fish.nix
     ./hyprland.nix
+    ./gitGlobal.nix
   ];
 }

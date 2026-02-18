@@ -1,11 +1,17 @@
-{ pkgs, lib, options, config, ... }:
+{
+  pkgs,
+  lib,
+  options,
+  config,
+  ...
+}:
 
-let 
+let
   cfg = config.custom.germanKeyboardLayout;
 in
 {
   options.custom.germanKeyboardLayout = {
-    enable =  lib.mkEnableOption "Enable german keyboard layout";
+    enable = lib.mkEnableOption "Enable german keyboard layout";
   };
 
   config = lib.mkIf cfg.enable {
@@ -14,7 +20,7 @@ in
         xkb = {
           layout = "de";
           variant = "nodeadkeys";
-        }; 
+        };
       };
     };
   };
