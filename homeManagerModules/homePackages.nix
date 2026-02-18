@@ -63,7 +63,6 @@
       resvg # for SVG preview
       tor-browser
       calibre
-      nixfmt # Nix code formatter
     ];
   };
 }

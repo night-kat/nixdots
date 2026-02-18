@@ -33,12 +33,12 @@
   time.timeZone = "Europe/Rome";
   programs.hyprland.enable = true;
   custom = {
-        boot = {
-    enable = true;
-    # latestKernel = true;
-    grub.enable = true;
-
-  };
+    boot = {
+      enable = true;
+      # latestKernel = true;
+      grub.enable = true;
+    };
+    gitGlobal.enable = true;
     systemLevelFish.enable = true;
     console.enable = true;
     seahorse.enable = true;

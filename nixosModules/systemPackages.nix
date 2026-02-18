@@ -30,7 +30,6 @@ in
       luajitPackages.luarocks_bootstrap
       clang
       ripgrep
-      rustup
       v4l-utils
       python313
       libsecret

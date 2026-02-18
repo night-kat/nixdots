@@ -1,12 +1,8 @@
 {
   config,
-  pkgs,
   lib,
-  options,
   ...
-}:
-
-{
+}: {
   options = {
     custom.yazi.enable = lib.mkEnableOption "Enable preconfigured yazi";
   };
@@ -14,6 +10,7 @@
   config = lib.mkIf config.custom.yazi.enable {
     programs.yazi = {
       enable = true;
+      shellWrapperName = "y";
       enableFishIntegration = true;
       settings = {
         log = {
