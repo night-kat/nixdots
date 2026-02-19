@@ -1,4 +1,10 @@
-{ lib, pkgs, config, options, ... }:
+{
+  lib,
+  pkgs,
+  config,
+  options,
+  ...
+}:
 
 {
   options = {
@@ -14,5 +20,13 @@
       "teams"
       "unrar" # required for sabnzbd
     ];
+    nixpkgs.config.allowUnfreePredicate =
+      pkg:
+      builtins.elem (lib.getName pkg) [
+        "obsidian"
+        # TODO: Steam is per host basis, remove teams eventually
+        # "steam"
+        "teams"
+      ];
   };
 }

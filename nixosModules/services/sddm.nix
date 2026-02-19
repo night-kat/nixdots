@@ -1,8 +1,15 @@
-{ pkgs, lib, options, config, ... }:
+{
+  pkgs,
+  lib,
+  options,
+  config,
+  ...
+}:
 
-let 
+let
   cfg = config.custom.sddm;
-in {
+in
+{
   options.custom.sddm = {
     enable = lib.mkEnableOption "Enable sddm display manager";
   };

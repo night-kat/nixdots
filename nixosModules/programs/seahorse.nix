@@ -1,4 +1,10 @@
-{ pkgs, lib, options, config, ... }:
+{
+  pkgs,
+  lib,
+  options,
+  config,
+  ...
+}:
 
 {
   options.custom.seahorse = {
@@ -9,4 +15,3 @@
     programs.seahorse.enable = true; # GUI for managing passwords and keys
   };
 }
-

@@ -2,17 +2,11 @@
 
 {
   imports = [
-    ./pkgs.nix
-    ./waybar.nix
+    ./programs
     ./hyprland
-    ./ssh.nix
-    ./mpv.nix
+    # Empty for now
+    # ./services
+    ./homePackages.nix
     ./cursor.nix
-    ./firefox.nix
-    ./fish.nix
-    ./git.nix
-    ./programs.nix
-    ./yazi.nix
-    # ./nvim.nix
   ];
 }

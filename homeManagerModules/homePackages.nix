@@ -1,6 +1,11 @@
-{ pkgs, inputs, lib, config, options, ... }:
-
 {
+  pkgs,
+  inputs,
+  lib,
+  config,
+  options,
+  ...
+}: {
   options = {
     custom.sharedPackages.enable = lib.mkEnableOption "Enable a list of shared programs";
   };
@@ -39,7 +44,7 @@
       ani-cli
       clipse
       tealdeer
-      qbittorrent
+      deluge
       signal-desktop
       rustlings
       hyprcursor # TODO: Is this even needed?
