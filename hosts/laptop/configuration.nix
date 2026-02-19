@@ -1,15 +1,7 @@
 # Edit this configuration file to define what should be installed on
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
-
-{
-  lib,
-  pkgs,
-  inputs,
-  ...
-}:
-
-{
+{inputs, ...}: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -27,7 +19,7 @@
     randomizedDelaySec = "45min";
   };
 
-  environment.pathsToLink = [ "/share/applications" "/share/xdg-desktop-portal" ];
+  environment.pathsToLink = ["/share/applications" "/share/xdg-desktop-portal"];
 
   # Set your time zone.
   time.timeZone = "Europe/Rome";
@@ -38,11 +30,13 @@
       # latestKernel = true;
       grub.enable = true;
     };
+    yubikey.enable = true;
     gitGlobal.enable = true;
     systemLevelFish.enable = true;
     console.enable = true;
     seahorse.enable = true;
     ssh.enable = true;
+    usenet.enable = true;
     auto-cpufreq.enable = true;
     avahiService.enable = true;
     bluemanService.enable = true;
@@ -71,13 +65,13 @@
   };
   networking.hostName = "nightcat"; # Define your hostname
 
-  system.copySystemConfiguration = false;
-
-  # This option defines the first version of NixOS you have installed on this particular machine,
-  # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
-  #
-  # Most users should NEVER change this value after the initial install, for any reason,
-  # even if you've upgraded your system to a new NixOS release.
-  system.stateVersion = "25.05"; # Did you read the comment?
+  system = {
+    copySystemConfiguration = false;
+    # This option defines the first version of NixOS you have installed on this particular machine,
+    # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
+    #
+    # Most users should NEVER change this value after the initial install, for any reason,
+    # even if you've upgraded your system to a new NixOS release.
+    stateVersion = "25.05"; # Did you read the comment?
+  };
 }
-
