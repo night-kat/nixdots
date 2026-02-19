@@ -1,6 +1,4 @@
-{ ... }:
-
-{
+{...}: {
   imports = [
     ./boot.nix
     ./fonts.nix
@@ -14,5 +12,6 @@
     ./services
     ./systemPackages.nix
     ./nixUnfreePackages.nix
+    ./yubikey.nix
   ];
 }
