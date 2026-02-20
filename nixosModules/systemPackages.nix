@@ -4,12 +4,9 @@
   options,
   config,
   ...
-}:
-
-let
+}: let
   cfg = config.custom.systemPackages;
-in
-{
+in {
   options.custom.systemPackages = {
     enable = lib.mkEnableOption "A list of useful packages installed in the system profile";
   };
@@ -24,6 +21,7 @@ in
       gphoto2
       ffmpeg
       mpv
+      sops
       mpvScripts.mpris
       fwupd
       yubioath-flutter

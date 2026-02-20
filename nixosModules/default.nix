@@ -13,5 +13,6 @@
     ./systemPackages.nix
     ./nixUnfreePackages.nix
     ./yubikey.nix
+    ./sops.nix
   ];
 }

@@ -213,6 +213,7 @@ in {
               # treesitter.enable = true;
               # format.enable = true;
             };
+            yaml.enable = true;
             nix = {
               enable = true;
               lsp = {
