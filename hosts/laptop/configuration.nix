@@ -30,6 +30,7 @@
       # latestKernel = true;
       grub.enable = true;
     };
+    sops.enable = true;
     yubikey.enable = true;
     gitGlobal.enable = true;
     systemLevelFish.enable = true;

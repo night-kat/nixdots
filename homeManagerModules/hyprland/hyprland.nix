@@ -5,12 +5,9 @@
   options,
   config,
   ...
-}:
-
-let
+}: let
   cfg = config.custom.myHyprland;
-in
-{
+in {
   options = {
     custom.myHyprland.enable = lib.mkEnableOption "Enable shared hyprland config";
     custom.myHyprland.laptopMonitor.enable = lib.mkOption {
@@ -46,7 +43,7 @@ in
           ]
           ++
           # Any random screen/fallback rule
-          [ ", preferred, auto, auto" ];
+          [", preferred, auto, auto"];
 
         # Programs
         "$terminal" = "alacritty";
@@ -120,21 +117,22 @@ in
         ];
 
         env = [
-          "EDITOR, codium"
+          "EDITOR, nvim"
         ];
 
         "$mainMod" = "SUPER";
 
         # Requires playerctl
-        bindl = [
-          ", XF86AudioNext, exec, playerctl next"
-          ", XF86AudioPause, exec, playerctl play-pause"
-          ", XF86AudioPlay, exec, playerctl play-pause"
-          ", XF86AudioPrev, exec, playerctl previous"
-        ]
-        ++ lib.optionals cfg.hasLidSwitch [
-          ", switch:on:[Lid Switch], exec, systemctl suspend" # Enable suspend on closing the laptop
-        ];
+        bindl =
+          [
+            ", XF86AudioNext, exec, playerctl next"
+            ", XF86AudioPause, exec, playerctl play-pause"
+            ", XF86AudioPlay, exec, playerctl play-pause"
+            ", XF86AudioPrev, exec, playerctl previous"
+          ]
+          ++ lib.optionals cfg.hasLidSwitch [
+            ", switch:on:[Lid Switch], exec, systemctl suspend" # Enable suspend on closing the laptop
+          ];
 
         bind = [
           # Move focus and change windows around
@@ -207,7 +205,6 @@ in
 
           # clipboard functionality
           "SUPER, V, exec, alacritty --class clipse -e clipse"
-
         ];
 
         bindm = [
