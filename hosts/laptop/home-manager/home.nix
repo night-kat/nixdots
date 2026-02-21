@@ -4,9 +4,7 @@
   pkgs,
   hostName,
   ...
-}:
-
-{
+}: {
   imports = [
     ./../../../homeManagerModules
   ];
@@ -21,7 +19,9 @@
     signing = {
       format = "ssh";
       signByDefault = true;
-      key = "~/.ssh/id_ed25519_sk.pub";
+    };
+    settings = {
+      user.signingkey = "~/.ssh/id_ed25519_sk.pub";
     };
   };
 
