@@ -1,4 +1,10 @@
-{ pkgs, lib, options, config, ... }:
+{
+  pkgs,
+  lib,
+  options,
+  config,
+  ...
+}:
 
 let
   cfg = config.custom.fonts;
@@ -22,8 +28,7 @@ in
         };
       };
 
-      packages = with pkgs;
-      [
+      packages = with pkgs; [
         hasklig
         nerd-fonts.symbols-only # symbols icon only
         nerd-fonts.fira-code

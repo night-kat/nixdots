@@ -1,6 +1,10 @@
-{ pkgs, lib, options, config, ... }:
-
-let 
+{
+  pkgs,
+  lib,
+  options,
+  config,
+  ...
+}: let
   cfg = config.custom.systemPackages;
 in {
   options.custom.systemPackages = {
@@ -17,13 +21,13 @@ in {
       gphoto2
       ffmpeg
       mpv
+      sops
       mpvScripts.mpris
       fwupd
       yubioath-flutter
       luajitPackages.luarocks_bootstrap
       clang
       ripgrep
-      rustup
       v4l-utils
       python313
       libsecret

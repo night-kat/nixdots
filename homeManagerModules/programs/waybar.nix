@@ -1,5 +1,11 @@
-{ pkgs, lib, options, config, ... }:
-let 
+{
+  pkgs,
+  lib,
+  options,
+  config,
+  ...
+}:
+let
   cfg = config.custom.waybar;
 in
 {
@@ -32,7 +38,7 @@ in
             "cpu"
             "memory"
           ]
-          ++ lib.optionals cfg.enableBattery ["battery"]
+          ++ lib.optionals cfg.enableBattery [ "battery" ]
           ++ [
             "pulseaudio"
             # "network"

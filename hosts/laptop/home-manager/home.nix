@@ -1,6 +1,10 @@
-{ config, lib, pkgs, hostName, ...}:
-
 {
+  config,
+  lib,
+  pkgs,
+  hostName,
+  ...
+}: {
   imports = [
     ./../../../homeManagerModules
   ];
@@ -15,15 +19,19 @@
     signing = {
       format = "ssh";
       signByDefault = true;
-      key = "~/.ssh/id_ed25519_sk.pub";
+    };
+    settings = {
+      user.signingkey = "~/.ssh/id_ed25519_sk.pub";
     };
   };
-  
-   wayland.windowManager.hyprland.enable = true;
+
+  wayland.windowManager.hyprland.enable = true;
   custom = {
+    nvf.enable = true;
+    neovide.enable = true;
     gitui.enable = true;
     fishWithAliases.enable = true;
-    myHyprland= {
+    myHyprland = {
       enable = true;
       laptopMonitor.enable = true;
       hasLidSwitch = true;

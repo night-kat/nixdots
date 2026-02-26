@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
   options = {
@@ -11,12 +16,12 @@
         "nix-command"
         "flakes"
       ];
-    
-    # garbage collection
-    gc = {
+
+      # garbage collection
+      gc = {
         automatic = true;
         dates = "weekly";
-        options = "--delete-older-than 7d";
+        options = "--delete-older-than 30d";
       };
     };
   };

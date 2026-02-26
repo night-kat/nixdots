@@ -11,5 +11,7 @@
     ./ssh.nix
     ./waybar.nix
     ./yazi.nix
+    ./nvf
+    ./neovide.nix
   ];
 }

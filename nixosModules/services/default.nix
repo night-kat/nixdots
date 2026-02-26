@@ -13,5 +13,6 @@
     ./printing.nix
     ./sddm.nix
     ./kbLayout.nix
+    ./sabnzbd.nix
   ];
 }

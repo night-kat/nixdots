@@ -1,11 +1,17 @@
-{ pkgs, options, lib, config, ... }:
+{
+  pkgs,
+  options,
+  lib,
+  config,
+  ...
+}:
 
 {
   options = {
     custom.bluemanService.enable = lib.mkEnableOption "Enable blueman as a system service";
   };
 
-  config = { 
+  config = {
     services = {
       blueman.enable = true;
     };

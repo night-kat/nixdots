@@ -1,4 +1,10 @@
-{ pkgs, lib, options, config, ... }:
+{
+  pkgs,
+  lib,
+  options,
+  config,
+  ...
+}:
 
 {
   options.custom.boot = {
@@ -11,7 +17,7 @@
   };
 
   config = lib.mkIf config.custom.boot.enable {
-      # Add extra Kernel modules
+    # Add extra Kernel modules
     boot = {
       kernelModules = [ "uvcvideo" ];
       # Use latest kernel.
