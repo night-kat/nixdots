@@ -6,6 +6,8 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     sops-nix.url = "github:Mic92/sops-nix";
+    # optional, not necessary for the module
+    #inputs.sops-nix.inputs.nixpkgs.follows = "nixpkgs";
     # Optional, if you intend to follow nvf's obsidian-nvim input
     # you must also add it as a flake input.
     # obsidian-nvim.url = "github:epwalsh/obsidian.nvim";

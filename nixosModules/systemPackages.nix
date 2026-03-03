@@ -21,7 +21,6 @@ in {
       gphoto2
       ffmpeg
       mpv
-      sops
       mpvScripts.mpris
       fwupd
       yubioath-flutter

@@ -2,6 +2,7 @@
   inputs,
   lib,
   config,
+  pkgs,
   ...
 }: {
   imports = [
@@ -13,14 +14,15 @@
   };
 
   config = lib.mkIf config.custom.sops.enable {
-    sops.defaultSopsFile = ./../secrets/secrets.yaml;
-    sops.defaultSopsFormat = "yaml";
-
-    sops.age.keyFile = "/home/user/.config/sops/age/keys.txt";
-
-    # sops.secrets.example-key = {};
-    # sops.secrets."myservice/my_subdir/my_secret" = {
-    #   owner = "sometestservice";
-    # };
+    environment.systemPackages = [pkgs.sops];
+    sops = {
+      defaultSopsFile = ./../secrets/secrets.yaml;
+      defaultSopsFormat = "yaml";
+      age.keyFile = "/home/user/.config/sops/age/keys.txt";
+      secrets = {
+        "easyusenet".username = {};
+        "easyusenet".password = {};
+      };
+    };
   };
 }

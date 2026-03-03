@@ -46,6 +46,7 @@
       tealdeer
       deluge
       signal-desktop
+      signal-desktop
       rustlings
       hyprcursor # TODO: Is this even needed?
       yubikey-manager
@@ -61,8 +62,6 @@
       resvg # for SVG preview
       tor-browser
       calibre
-      sabnzbd # Usenet downloader
-      unzip
     ];
   };
 }

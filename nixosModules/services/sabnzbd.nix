@@ -1,18 +1,24 @@
-{ pkgs, lib, options, config, ... }:
-
-let 
-  cfg = config.custom.usenet;
-in
 {
+  pkgs,
+  lib,
+  config,
+  ...
+}: let
+  cfg = config.custom.usenet;
+in {
   options.custom.usenet = {
-    enable =  lib.mkEnableOption "Enable usenet downloader sabnzbd";
+    enable = lib.mkEnableOption "Enable usenet downloader sabnzbd";
   };
 
   config = lib.mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [
+      sabnzbd # Usenet downloader
+      unzip
+    ];
     services.sabnzbd = {
       enable = true;
       user = "nightcat";
-      settings= {
+      settings = {
         config_conversion_version = 4;
         queue_complete = "";
         queue_complete_pers = 0;
@@ -32,8 +38,8 @@ in
         host = "127.0.0.1";
         port = 8080;
         https_port = "";
-        username = "";
-        password = "";
+        # username = config.sops.secrets."easyusenet/username".path;
+        # password = config.sops.secrets."easyusenet/password".path;
         bandwidth_max = "";
         cache_limit = "1G";
         web_dir = "Glitter";
@@ -79,32 +85,32 @@ in
         auto_disconnect = 1;
         pre_script = "None";
         end_queue_script = "None";
-          servers = {
+        servers = {
           newsgroupdirect = {
             displayname = "Newsgroup Direct";
             name = "newsgroupdirect";
-            host = "eu-tst.newsgroupdirect.com"; 
+            host = "eu-tst.newsgroupdirect.com";
             port = 563;
             connections = 100;
             # 0 means highest priority
             # 100 means lowest priority
             priority = 90;
             ssl = true;
-            ssl_verify = "strict"; 
+            ssl_verify = "strict";
           };
 
           easyusenet = {
             displayname = "Easyusenet";
             name = "easyusenet";
-            host = "reader.easyusenet.nl"; 
+            host = "reader.easyusenet.nl";
             required = true;
             port = 563;
-            expiry = "2026-08-01"; 
-            connections = 10; 
+            expiry = "2026-08-01";
+            connections = 10;
             # 0 means highest priority
             # 100 means lowest priority
-            priority = 10; 
-            ssl = true; 
+            priority = 10;
+            ssl = true;
             ssl_verify = "strict";
           };
         };
@@ -112,3 +118,4 @@ in
     };
   };
 }
+
