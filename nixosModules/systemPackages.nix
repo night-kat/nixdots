@@ -1,7 +1,6 @@
 {
   pkgs,
   lib,
-  options,
   config,
   ...
 }: let
@@ -22,12 +21,13 @@ in {
       ffmpeg
       mpv
       mpvScripts.mpris
+      (import ./../scripts/my-awesome-script.nix {inherit pkgs;})
+      (import ./../scripts/port-forward-script.nix {inherit pkgs;})
       fwupd
       yubioath-flutter
       luajitPackages.luarocks_bootstrap
       clang
       ripgrep
-      v4l-utils
       python313
       libsecret
       bluez

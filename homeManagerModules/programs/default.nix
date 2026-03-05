@@ -1,8 +1,5 @@
-{ ... }:
-
-{
+{...}: {
   imports = [
-    ./bacon.nix
     ./firefox.nix
     ./fish.nix
     ./git.nix
