@@ -60,7 +60,7 @@
       zoxide # for historical directories navigation, requires fzf
       resvg # for SVG preview
       tor-browser
-      calibre
+      # calibre
       sabnzbd # Usenet downloader
       unzip
     ];
