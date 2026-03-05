@@ -14,5 +14,6 @@
     ./nixUnfreePackages.nix
     ./yubikey.nix
     ./sops.nix
+    ./security
   ];
 }
