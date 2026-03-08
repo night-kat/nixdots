@@ -22,30 +22,30 @@ My current [NixOS](https://nixos.org/) and [Home Manager](https://github.com/nix
 │   │   ├── default.nix
 │   │   ├── hyprland.nix
 │   │   └── hyprpaper.nix
-│   ├── programs
-│   │   ├── bacon.nix
-│   │   ├── default.nix
-│   │   ├── firefox.nix
-│   │   ├── fish.nix
-│   │   ├── git.nix
-│   │   ├── mpv.nix
-│   │   ├── ssh.nix
-│   │   ├── waybar.nix
-│   │   └── yazi.nix
-│   └── services
-├── hosts
-│   ├── desktop
+│   └── programs # These programs are installed on a user-level
+│       ├── default.nix
+│       ├── firefox.nix
+│       ├── fish.nix
+│       ├── git.nix
+│       ├── gitui.nix
+│       ├── mpv.nix
+│       ├── neovide.nix
+│       ├── nvf # The configuration for neovim
+│       │   ├── default.nix
+│       │   ├── mappings.nix
+│       │   ├── nvf-configuration.nix
+│       │   └── theme.nix
+│       ├── ssh.nix
+│       ├── waybar.nix
+│       └── yazi.nix
+├── hosts # The files for differents hosts
 │   └── laptop
 │       ├── configuration.nix
 │       ├── hardware-configuration.nix
 │       ├── home-manager
-│       │   ├── home.nix
-│       │   └── scripts
-│       │       ├── random_wallpaper.sh
-│       │       ├── signature.sh
-│       │       └── ssh.sh
+│       │   └── home.nix
 │       └── users.nix
-├── nixosModules
+├── nixosModules # Some shared modules on system-level
 │   ├── bluetoothSettings.nix
 │   ├── boot.nix
 │   ├── default.nix
@@ -60,6 +60,7 @@ My current [NixOS](https://nixos.org/) and [Home Manager](https://github.com/nix
 │   │   ├── console.nix
 │   │   ├── default.nix
 │   │   ├── fish.nix
+│   │   ├── gitGlobal.nix
 │   │   ├── hyprland.nix
 │   │   ├── seahorse.nix
 │   │   └── ssh.nix
@@ -75,12 +76,22 @@ My current [NixOS](https://nixos.org/) and [Home Manager](https://github.com/nix
 │   │   ├── pcscd.nix
 │   │   ├── pipewire.nix
 │   │   ├── printing.nix
+│   │   ├── sabnzbd.nix
 │   │   └── sddm.nix
+│   ├── sops.nix
 │   ├── systemPackages.nix
-│   └── systemSettings.nix
+│   ├── systemSettings.nix
+│   └── yubikey.nix
 ├── README.md
+├── scripts 
+│   ├── my-awesome-script.nix
+│   ├── port-forward-script.nix
+│   ├── random_wallpaper.sh
+│   ├── signature.sh
+│   └── ssh.sh
+├── secrets
+│   └── secrets.yaml
 └── wallpapers
     ├── anime-secrets-of-the-silent-witch-date-sortie-trailer-3962595682.jpg
     ├── frieren-anime-girl-5120x2880-15156.jpg
     └── frieren-magical-5120x2880-15165.jpeg
-``` 

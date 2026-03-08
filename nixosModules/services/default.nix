@@ -1,6 +1,4 @@
-{ ... }:
-
-{
+{...}: {
   imports = [
     ./autoCpuFreq.nix
     ./avahi.nix

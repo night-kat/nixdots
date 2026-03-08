@@ -21,7 +21,9 @@
       signByDefault = true;
     };
     settings = {
-      user.signingkey = "~/.ssh/id_ed25519_sk.pub";
+      # This has to be updated manually should the key change
+      # Multiple keys cannot be set (i think)
+      user.signingkey = "~/.ssh/id_ed25519_sk_codeberg.pub";
     };
   };
 

@@ -25,6 +25,7 @@
   time.timeZone = "Europe/Rome";
   programs.hyprland.enable = true;
   custom = {
+    sudo-rs.enable = true;
     boot = {
       enable = true;
       # latestKernel = true;
