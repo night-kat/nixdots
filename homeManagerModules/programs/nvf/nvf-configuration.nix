@@ -22,6 +22,9 @@ in {
       # most settings are documented in the appendix
       settings = {
         vim = {
+        diagnostics = {
+        config.virtual_lines.enable = true;
+        };
           spellcheck = {
             enable = true;
           };
