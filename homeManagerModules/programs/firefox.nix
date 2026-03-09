@@ -4,9 +4,7 @@
   options,
   config,
   ...
-}:
-
-{
+}: {
   options = {
     custom.firefox.enable = lib.mkEnableOption "Enable firefox on user level";
   };

@@ -29,6 +29,7 @@
 
   wayland.windowManager.hyprland.enable = true;
   custom = {
+    element.enable = true;
     nvf.enable = true;
     neovide.enable = true;
     gitui.enable = true;

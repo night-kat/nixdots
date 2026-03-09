@@ -10,5 +10,6 @@
     ./yazi.nix
     ./nvf
     ./neovide.nix
+    ./element.nix
   ];
 }
