@@ -49,16 +49,6 @@
       rustlings
       hyprcursor # TODO: Is this even needed?
       yubikey-manager
-      #dependencies for yazi
-      imagemagick # for Font, HEIC, and JPEG XL preview
-      ffmpeg # for video thumbnails
-      jq # for JSON preview
-      poppler # for PDF preview
-      fd # for file searching
-      # ripgrep already installed in configuration.nix
-      fzf # for quick file subtree navigation
-      zoxide # for historical directories navigation, requires fzf
-      resvg # for SVG preview
       tor-browser
       # calibre
       sabnzbd # Usenet downloader
