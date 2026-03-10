@@ -1,9 +1,7 @@
 {
   pkgs,
-  inputs,
   lib,
   config,
-  options,
   ...
 }: {
   options = {
@@ -12,6 +10,7 @@
 
   config = lib.mkIf config.custom.sharedPackages.enable {
     home.packages = with pkgs; [
+      inotify-tools
       fuchsia-cursor
       mpc
       mpd

@@ -30,6 +30,27 @@
     ...
   } @ inputs: {
     nixosConfigurations = {
+      desktops = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        system = "x86_64-linux";
+        modules = [
+          nvf.nixosModules.default
+          home-manager.nixosModules.home-manager
+          ./hosts/desktop/configuration.nix
+          ./nixosModules
+          {
+            home-manager.users.nightcat = ./hosts/desktop/home-manager/home.nix;
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+          }
+          # Optionally, use home-manager.extraSpecialArgs to pass
+          # arguments to home.nix
+          {
+            home-manager.extraSpecialArgs = {inherit inputs;};
+          }
+        ];
+      };
+
       laptop = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         system = "x86_64-linux";
