@@ -31,27 +31,27 @@
       grub.enable = false;
       systemd-boot.enable = true;
     };
-    sops.enable = true;
-    yubikey.enable = true;
+    # sops.enable = true;
+    # yubikey.enable = true;
     gitGlobal.enable = true;
     systemLevelFish.enable = true;
-    console.enable = true;
-    seahorse.enable = true;
-    ssh.enable = true;
-    usenet.enable = true;
-    auto-cpufreq.enable = true;
+    # console.enable = true;
+    # seahorse.enable = true;
+    # ssh.enable = true;
+    # usenet.enable = true;
+    # auto-cpufreq.enable = true;
     avahiService.enable = true;
     bluemanService.enable = true;
     fwupdService.enable = true;
     germanKeyboardLayout.enable = true;
-    libinputService.touchPadSupport = true;
+    # libinputService.touchPadSupport = true;
     openssh.enable = true;
     pcscd.enable = true;
     pipewire.enable = true;
-    printing = {
-      enable = true;
-      epsonDrivers.enable = true;
-    };
+    # printing = {
+    #   enable = true;
+    #   epsonDrivers.enable = true;
+    # };
     sddm.enable = true;
     bluetoothSettings.enable = true;
     fonts = {

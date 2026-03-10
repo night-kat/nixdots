@@ -9,7 +9,7 @@
     ./../../../homeManagerModules
   ];
 
-  home.stateVersion = "25.11"; # Don't change this
+  home.stateVersion = "25.05"; # Don't change this
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
