@@ -28,7 +28,8 @@
     boot = {
       enable = true;
       # latestKernel = true;
-      grub.enable = true;
+      grub.enable = false;
+      systemd-boot.enable = true;
     };
     sops.enable = true;
     yubikey.enable = true;
@@ -73,6 +74,6 @@
     #
     # Most users should NEVER change this value after the initial install, for any reason,
     # even if you've upgraded your system to a new NixOS release.
-    stateVersion = "25.05"; # Did you read the comment?
+    stateVersion = "25.11"; # Did you read the comment?
   };
 }
