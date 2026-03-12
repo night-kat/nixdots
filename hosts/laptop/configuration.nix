@@ -52,7 +52,11 @@
       enable = true;
       epsonDrivers.enable = true;
     };
-    sddm.enable = true;
+    # sddm.enable = true;
+    regreet = {
+      enable = true;
+      hyprland.enable = true;
+    };
     bluetoothSettings.enable = true;
     fonts = {
       enable = true;
