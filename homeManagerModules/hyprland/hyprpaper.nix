@@ -4,9 +4,7 @@
   lib,
   pkgs,
   ...
-}:
-
-{
+}: {
   # TODO: Per host only, not shared, factor out later maybe
   options = {
     custom.hyprpaper.enable = lib.mkEnableOption "Enable hyprpaper with background";
@@ -18,7 +16,7 @@
       settings = {
         wallpaper = {
           "monitor" = "eDP-1";
-          "path" = "${./../../wallpapers/frieren-magical-5120x2880-15165.jpeg}";
+          "path" = "${./../../wallpapers/frieren_1.jpeg}";
           "fit_mode" = "cover";
         };
       };
