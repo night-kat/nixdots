@@ -40,6 +40,13 @@ in {
           terminal = {
             vt = 1;
           };
+
+          # How the background image covers the screen if the aspect ratio doesn't match
+          # Available values: "Fill", "Contain", "Cover", "ScaleDown" Refer to:
+          # https://docs.gtk.org/gtk4/enum.ContentFit.html NOTE: This is ignored if ReGreet
+          # isn't compiled with GTK v4.8 support.
+          fit = "Contain";
+
           default_session =
             lib.mkIf cfg.hyprland.enable {
             }
