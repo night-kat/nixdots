@@ -21,7 +21,7 @@
       signByDefault = true;
     };
     settings = {
-      user.signingkey = "~/.ssh/id_ed25519_sk.pub";
+      user.signingkey = "~/.ssh/id_ed25519_sk_rk_codeberg_auth.pub";
     };
   };
 
