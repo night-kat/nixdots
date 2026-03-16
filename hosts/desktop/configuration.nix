@@ -1,7 +1,11 @@
 # Edit this configuration file to define what should be installed on
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
-{inputs, ...}: {
+{
+  inputs,
+  lib,
+  ...
+}: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -20,6 +24,11 @@
   };
 
   environment.pathsToLink = ["/share/applications" "/share/xdg-desktop-portal"];
+  # enable nvidia stuff
+  hardware.graphics.enable = true;
+  services.xserver.videoDrivers = ["nvidia"];
+  # Whether to use open source or proprietary drivers
+  hardware.nvidia.open = false; # see the note above
 
   # Set your time zone.
   time.timeZone = "Europe/Rome";
