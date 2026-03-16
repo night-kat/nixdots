@@ -60,7 +60,7 @@ in {
 
         input = {
           kb_layout = "de";
-          kb_variant = "";
+          kb_variant = "nodeadkeys";
           kb_model = "";
           kb_rules = "";
           touchpad = {
