@@ -15,14 +15,13 @@
       signByDefault = true;
     };
     settings = {
-      # This has to be updated manually should the key change
-      # Multiple keys cannot be set (i think)
-      # user.signingkey = "~/.ssh/id_ed25519_sk_codeberg.pub";
+      user.signingkey = ["~/.ssh/id_ed25519_sk_codeberg.pub" "~/.ssh/id_ed25519_sk_github.pub"];
     };
   };
 
   wayland.windowManager.hyprland.enable = true;
   custom = {
+    element.enable = true;
     nvf.enable = true;
     neovide.enable = true;
     gitui.enable = true;

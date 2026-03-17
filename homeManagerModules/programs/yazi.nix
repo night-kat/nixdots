@@ -1,4 +1,5 @@
 {
+  pkgs,
   config,
   lib,
   ...
@@ -8,6 +9,18 @@
   };
 
   config = lib.mkIf config.custom.yazi.enable {
+    home.packages = with pkgs; [
+      #dependencies for yazi
+      imagemagick # for Font, HEIC, and JPEG XL preview
+      ffmpeg # for video thumbnails
+      jq # for JSON preview
+      poppler # for PDF preview
+      fd # for file searching
+      fzf # for quick file subtree navigation
+      zoxide # for historical directories navigation, requires fzf
+      resvg # for SVG preview
+    ];
+
     programs.yazi = {
       enable = true;
       shellWrapperName = "y";

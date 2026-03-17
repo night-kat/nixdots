@@ -13,7 +13,7 @@ in {
 
   config = lib.mkIf cfg.enable {
     services.sabnzbd = {
-      enable = true;
+      # enable = true;
       user = "nightcat";
       settings = {
         # Allows the configuration to be changed by the web interface
@@ -52,4 +52,3 @@ in {
     };
   };
 }
-
