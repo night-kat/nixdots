@@ -13,6 +13,10 @@
         "obsidian"
         # TODO: Steam is per host basis, remove teams eventually
         # "steam"
+        "steam"
+        "steam-original"
+        "steam-unwrapped"
+        "steam-run"
         "nvidia-x11"
         "nvidia-settings"
         "teams"

@@ -3,6 +3,7 @@
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 {
   inputs,
+  pkgs,
   lib,
   ...
 }: {
@@ -22,13 +23,12 @@
     dates = "02:00";
     randomizedDelaySec = "45min";
   };
-
   environment.pathsToLink = ["/share/applications" "/share/xdg-desktop-portal"];
   # enable nvidia stuff
   hardware.graphics.enable = true;
   services.xserver.videoDrivers = ["nvidia"];
   # Whether to use open source or proprietary drivers
-  hardware.nvidia.open = false; # see the note above
+  hardware.nvidia.open = true; # see the note above
 
   # Set your time zone.
   time.timeZone = "Europe/Rome";
@@ -36,17 +36,18 @@
   custom = {
     boot = {
       enable = true;
-      # latestKernel = true;
       grub.enable = false;
       systemd-boot.enable = true;
     };
-    # sops.enable = true;
-    # yubikey.enable = true;
+    steam.enable = true;
+    lutris.enable = true;
+    sops.enable = true;
+    yubikey.enable = true;
     gitGlobal.enable = true;
     systemLevelFish.enable = true;
-    # console.enable = true;
+    console.enable = true;
     # seahorse.enable = true;
-    # ssh.enable = true;
+    ssh.enable = true;
     # usenet.enable = true;
     # auto-cpufreq.enable = true;
     avahiService.enable = true;
