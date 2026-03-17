@@ -5,9 +5,6 @@
   ...
 }: let
   cfg = config.custom.sddm;
-  # sddm-astronaut-custom = pkgs.sddm-astronaut.override {
-  #   embeddedTheme = "black_hole";
-  # };
 in {
   options.custom.sddm = {
     enable = lib.mkEnableOption "Enable sddm display manager";
@@ -16,7 +13,14 @@ in {
   config = lib.mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       sddm-sugar-dark
-      sddm-astronaut
+      (pkgs.callPackage ./../../ressources/sddm-astronaut-theme {
+        theme = "hyprland_kath";
+        # theme = "black_hole";
+        # theme = "japanese_aesthetic";
+        # theme = "astronaut";
+        # theme = "purple_leaves";
+        # theme = "pixel_sakura(-static)";
+      })
     ];
 
     services.displayManager.sddm = {
@@ -24,7 +28,7 @@ in {
       theme = "sddm-astronaut-theme";
       wayland.enable = true;
       extraPackages = [
-        pkgs.sddm-sugar-dark
+        # pkgs.sddm-sugar-dark
         pkgs.sddm-astronaut
       ];
     };
