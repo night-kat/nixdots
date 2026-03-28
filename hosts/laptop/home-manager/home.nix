@@ -18,10 +18,11 @@
   programs.git = {
     signing = {
       format = "ssh";
-      signByDefault = true;
+      signByDefault = false;
     };
     settings = {
-      user.signingkey = ["~/.ssh/id_ed25519_sk_codeberg.pub" "~/.ssh/id_ed25519_sk_github.pub"];
+      user.signingkey = ["~/.ssh/id_ed25519_sk_rk_github_sign.pub"];
+      # user.signingkey = ["~/.ssh/id_ed25519_sk_codeberg.pub"];
     };
   };
 

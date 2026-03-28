@@ -12,6 +12,7 @@
 
   config = lib.mkIf config.custom.sharedPackages.enable {
     home.packages = with pkgs; [
+      libfido2
       fuchsia-cursor
       mpc
       mpd
