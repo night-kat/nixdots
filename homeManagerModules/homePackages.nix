@@ -11,6 +11,7 @@
   config = lib.mkIf config.custom.sharedPackages.enable {
     home.packages = with pkgs; [
       inotify-tools
+      libfido2
       fuchsia-cursor
       mpc
       mpd
