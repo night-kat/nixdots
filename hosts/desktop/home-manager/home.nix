@@ -27,6 +27,7 @@
 
   wayland.windowManager.hyprland.enable = true;
   custom = {
+    keepass.enable = true;
     waybar.enable = true;
     nvf.enable = true;
     neovide.enable = true;

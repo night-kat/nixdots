@@ -11,5 +11,6 @@
     ./nvf
     ./neovide.nix
     ./element.nix
+    ./keepass.nix
   ];
 }
