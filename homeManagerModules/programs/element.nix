@@ -5,12 +5,14 @@
   ...
 }: {
   options = {
-    custom.element.enable = lib.mkEnableOption "Enable element, a matrix client";
+    custom.element.enable = lib.mkEnableOption "Enable element and a secret service";
   };
 
   config = lib.mkIf config.custom.element.enable {
     home.packages = with pkgs; [
       element-desktop
+      gcr
     ];
+    services.gnome-keyring.enable = true;
   };
 }

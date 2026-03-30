@@ -27,6 +27,7 @@
 
   wayland.windowManager.hyprland.enable = true;
   custom = {
+    waybar.enable = true;
     nvf.enable = true;
     neovide.enable = true;
     gitui.enable = true;
@@ -41,12 +42,9 @@
     firefox.enable = true;
     gitConfig.enable = true;
     mpv.enable = true;
+    element.enable = true;
     sharedPackages.enable = true;
     sshClientConfig.enable = true;
-    waybar = {
-      enable = true;
-      enableBattery = true;
-    };
     yazi.enable = true;
   };
 }
