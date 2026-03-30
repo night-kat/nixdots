@@ -13,6 +13,5 @@
       element-desktop
       gcr
     ];
-    services.gnome-keyring.enable = true;
   };
 }
