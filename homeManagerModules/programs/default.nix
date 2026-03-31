@@ -1,5 +1,6 @@
 {...}: {
   imports = [
+    ./blender.nix
     ./firefox.nix
     ./fish.nix
     ./git.nix
