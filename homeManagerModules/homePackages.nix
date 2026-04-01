@@ -10,6 +10,8 @@
 
   config = lib.mkIf config.custom.sharedPackages.enable {
     home.packages = with pkgs; [
+      direnv
+      nix-direnv
       inotify-tools
       libfido2
       fuchsia-cursor
