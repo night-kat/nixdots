@@ -39,6 +39,7 @@
       grub.enable = false;
       systemd-boot.enable = true;
     };
+    sudo-rs.enable = true;
     steam.enable = true;
     lutris.enable = true;
     sops.enable = true;
@@ -62,7 +63,7 @@
     #   enable = true;
     #   epsonDrivers.enable = true;
     # };
-    sddm.enable = true;
+    # sddm.enable = true;
     bluetoothSettings.enable = true;
     fonts = {
       enable = true;
@@ -75,7 +76,7 @@
     systemPackages.enable = true;
     systemSettings.enable = true;
   };
-  networking.hostName = "nightcat"; # Define your hostname
+  networking.hostName = "nightcat-pc"; # Define your hostname
 
   system = {
     copySystemConfiguration = false;
