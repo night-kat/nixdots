@@ -4,12 +4,9 @@
   options,
   config,
   ...
-}:
-
-let
+}: let
   cfg = config.custom.germanKeyboardLayout;
-in
-{
+in {
   options.custom.germanKeyboardLayout = {
     enable = lib.mkEnableOption "Enable german keyboard layout";
   };

@@ -22,9 +22,12 @@ in {
       # most settings are documented in the appendix
       settings = {
         vim = {
-        diagnostics = {
-        config.virtual_lines.enable = true;
-        };
+          diagnostics = {
+            enable = true;
+            # This will show ALL the errors. It can use up all the screen space
+            # config.virtual_lines.enable = true;
+            config.virtual_text.enable = true;
+          };
           spellcheck = {
             enable = true;
           };
@@ -78,6 +81,7 @@ in {
 
           filetree.nvimTree = {
             enable = true;
+            openOnSetup = true;
             setupOpts = {
               git.enable = true;
               renderer.highlight_git = true;
@@ -198,6 +202,10 @@ in {
           };
 
           languages = {
+            markdown = {
+              enable = true;
+              extensions.markview-nvim.enable = true;
+            };
             haskell.enable = true;
             rust = {
               enable = true;

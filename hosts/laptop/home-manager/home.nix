@@ -18,12 +18,11 @@
   programs.git = {
     signing = {
       format = "ssh";
-      signByDefault = true;
+      signByDefault = false;
     };
     settings = {
-      # This has to be updated manually should the key change
-      # Multiple keys cannot be set (i think)
-      user.signingkey = "~/.ssh/id_ed25519_sk_rk_codeberg_auth.pub";
+      user.signingkey = ["~/.ssh/id_ed25519_sk_rk_github_sign.pub"];
+      # user.signingkey = ["~/.ssh/id_ed25519_sk_codeberg.pub"];
     };
   };
 

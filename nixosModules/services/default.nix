@@ -12,5 +12,6 @@
     ./sddm.nix
     ./kbLayout.nix
     ./sabnzbd.nix
+    ./regreet.nix
   ];
 }
