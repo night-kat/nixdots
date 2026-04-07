@@ -6,6 +6,7 @@
 }: {
   imports = [
     niri.homeModules.niri
+    ./niri-settings.nix
   ];
   options = {
     custom.niri.enable = lib.mkEnableOption "Enable niri";
