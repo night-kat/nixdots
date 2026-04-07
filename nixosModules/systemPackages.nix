@@ -16,7 +16,8 @@ in {
     environment.systemPackages = with pkgs; [
       (lib.hiPrio pkgs.uutils-coreutils-noprefix) # `lib.hiPrio` is used to avoid potential conflict with `coreutils-full` (also see https://discourse.nixos.org/t/how-to-use-uutils-coreutils-instead-of-the-builtin-coreutils/8904/15?u=malix)
       wget
-      alacritty
+      # alacritty
+      kitty
       gphoto2
       ffmpeg
       mpv

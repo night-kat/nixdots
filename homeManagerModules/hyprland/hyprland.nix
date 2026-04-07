@@ -46,11 +46,11 @@ in {
           [", preferred, auto, auto"];
 
         # Programs
-        "$terminal" = "alacritty";
+        "$terminal" = "kitty";
         "$webBrowser" = "firefox";
         "$menu" = "rofi -show drun";
         "$codeEditor" = "neovide";
-        "$fileManager" = "alacritty -e yazi";
+        "$fileManager" = "kitty -e yazi";
         "$notes" = "obsidian";
 
         exec-once = [
@@ -204,7 +204,7 @@ in {
           "$mainMod, T, togglefloating"
 
           # clipboard functionality
-          "SUPER, V, exec, alacritty --class clipse -e clipse"
+          "SUPER, V, exec, kitty --class clipse -e clipse"
         ];
 
         bindm = [
@@ -226,6 +226,7 @@ in {
         windowrule = [
           "no_blur on, match:class Firefox"
           "suppress_event maximize, match:class *"
+          "opacity 0.85 0.75 1.00, match:class kitty"
           "opacity 0.85 0.75 1.00, match:class Alacritty"
           "opacity 0.85 0.75 1.00, match:class neovide"
           "float on, match:class (clipse)"

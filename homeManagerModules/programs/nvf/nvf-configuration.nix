@@ -202,6 +202,10 @@ in {
           };
 
           languages = {
+            markdown = {
+              enable = true;
+              extensions.markview-nvim.enable = true;
+            };
             haskell.enable = true;
             rust = {
               enable = true;
