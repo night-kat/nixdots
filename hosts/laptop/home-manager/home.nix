@@ -26,7 +26,7 @@
     };
   };
 
-  wayland.windowManager.hyprland.enable = true;
+  # wayland.windowManager.hyprland.enable = true;
   custom = {
     niri.enable = true;
     element.enable = true;
@@ -34,11 +34,11 @@
     neovide.enable = true;
     gitui.enable = true;
     fishWithAliases.enable = true;
-    myHyprland = {
-      enable = true;
-      laptopMonitor.enable = true;
-      hasLidSwitch = true;
-    };
+    # myHyprland = {
+    #   enable = true;
+    #   laptopMonitor.enable = true;
+    #   hasLidSwitch = true;
+    # };
     hyprpaper.enable = true;
     myCursor.enable = true;
     firefox.enable = true;

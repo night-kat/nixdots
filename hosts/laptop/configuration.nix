@@ -23,7 +23,7 @@
 
   # Set your time zone.
   time.timeZone = "Europe/Rome";
-  programs.hyprland.enable = true;
+  # programs.hyprland.enable = true;
   custom = {
     direnv.enable = true;
     sudo-rs.enable = true;
