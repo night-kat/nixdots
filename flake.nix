@@ -6,6 +6,7 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     sops-nix.url = "github:Mic92/sops-nix";
+    niri.url = "github:sodiboo/niri-flake";
     # Optional, if you intend to follow nvf's obsidian-nvim input
     # you must also add it as a flake input.
     # obsidian-nvim.url = "github:epwalsh/obsidian.nvim";
@@ -27,6 +28,7 @@
     nixpkgs,
     home-manager,
     nvf,
+    niri,
     ...
   } @ inputs: {
     nixosConfigurations = {
@@ -46,7 +48,7 @@
           # Optionally, use home-manager.extraSpecialArgs to pass
           # arguments to home.nix
           {
-            home-manager.extraSpecialArgs = {inherit inputs;};
+            home-manager.extraSpecialArgs = {inherit inputs niri;};
           }
         ];
       };

@@ -1,6 +1,4 @@
-{ ... }:
-
-{
+{...}: {
   imports = [
     ./programs
     ./hyprland
@@ -8,5 +6,6 @@
     # ./services
     ./homePackages.nix
     ./cursor.nix
+    ./niri
   ];
 }

@@ -23,7 +23,6 @@
       wireplumber
       cava # Audio visualizer
       alacritty
-      niri
       hyprland
       hyprpaper
       xwayland
