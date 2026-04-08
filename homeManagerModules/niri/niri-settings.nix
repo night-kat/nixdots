@@ -274,7 +274,7 @@
         action.spawn = [
           "sh"
           "-c"
-          "${pkgs.playerctl} play-pause"
+          "${pkgs.playerctl}/bin/playerctl play-pause"
         ];
       };
       "XF86AudioStop" = {
@@ -282,7 +282,7 @@
         action.spawn = [
           "sh"
           "-c"
-          "${pkgs.playerctl} stop"
+          "${pkgs.playerctl}/bin/playerctl stop"
         ];
       };
       "XF86AudioPrev" = {
@@ -290,7 +290,7 @@
         action.spawn = [
           "sh"
           "-c"
-          "${pkgs.playerctl} previous"
+          "${pkgs.playerctl}/bin/playerctl previous"
         ];
       };
       "XF86AudioNext" = {
@@ -298,7 +298,7 @@
         action.spawn = [
           "sh"
           "-c"
-          "${pkgs.playerctl} next"
+          "${pkgs.playerctl}/bin/playerctl next"
         ];
       };
 
@@ -306,19 +306,19 @@
       "XF86MonBrightnessUp" = {
         allow-when-locked = true;
         action.spawn = [
-          "${pkgs.brightnessctl}"
-          "--class=backlight"
+          "${pkgs.brightnessctl}/bin/brightnessctl"
+          # "--class=backlight"
           "set"
-          "+10%"
+          "+5%"
         ];
       };
       "XF86MonBrightnessDown" = {
         allow-when-locked = true;
         action.spawn = [
-          "${pkgs.brightnessctl}"
-          "--class=backlight"
+          "${pkgs.brightnessctl}/bin/brightnessctl"
+          # "--class=backlight"
           "set"
-          "10%-"
+          "5%-"
         ];
       };
 
