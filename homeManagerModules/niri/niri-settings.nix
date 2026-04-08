@@ -12,7 +12,7 @@
       keyboard = {
         # Empty xkb = niri reads from org.freedesktop.locale1 (localectl)
         repeat-rate = 35;
-        repeat-delay = 200;
+        repeat-delay = 400;
 
         xkb = {
           layout = "de";
@@ -134,8 +134,9 @@
     # ─── Startup ──────────────────────────────────────────────────────────────
 
     spawn-at-startup = [
-      {argv = ["${pkgs.waybar}"];}
+      # {argv = ["${pkgs.waybar}"];}
       # {sh = "noctalia-shell";}
+      {sh = lib.getExe pkgs.noctalia-shell;}
       # { sh = "qs -c ~/source/qs/MyAwesomeShell"; }
     ];
 
@@ -213,9 +214,14 @@
         action.spawn = lib.getExe pkgs.firefox;
       };
       "Mod+D" = {
-        hotkey-overlay.title = "Run an Application: fuzzel";
-        action.spawn = lib.getExe pkgs.fuzzel;
+        hotkey-overlay.title = "Run Application Launcher";
+        action.spawn = ["${pkgs.noctalia-shell}/bin/noctalia" "ipc" "call" "launcher" "toggle"];
       };
+
+      # "Mod+D" = {
+      #   hotkey-overlay.title = "Run an Application: fuzzel";
+      #   action.spawn = lib.getExe pkgs.fuzzel;
+      # };
       "Super+Alt+L" = {
         hotkey-overlay.title = "Lock the Screen: swaylock";
         action.spawn = lib.getExe pkgs.swaylock;
