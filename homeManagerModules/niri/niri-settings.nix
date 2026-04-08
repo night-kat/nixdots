@@ -220,6 +220,12 @@
         hotkey-overlay.title = "Lock the Screen: swaylock";
         action.spawn = lib.getExe pkgs.swaylock;
       };
+      "Mod+E" = {
+        hotkey-overlay.title = "Open file manager: yazi";
+        # action.spawn = "${pkgs.kitty}/bin/kitty -e ${pkgs.yazi}";
+        action.spawn = ["${pkgs.kitty}/bin/kitty" "-e" "${pkgs.yazi}/bin/yazi"];
+      };
+
       # hotkey-overlay-title=null in KDL → hotkey-overlay.hidden = true in Nix
 
       # not needed
@@ -239,7 +245,6 @@
         action.spawn = [
           "sh"
           "-c"
-
           "${pkgs.wireplumber}/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"
         ];
       };
