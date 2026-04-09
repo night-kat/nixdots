@@ -136,6 +136,8 @@
     spawn-at-startup = [
       # {argv = ["${pkgs.waybar}"];}
       # {sh = "noctalia-shell";}
+
+      # NixOS Flake users: Use noctalia-shell directly instead of qs -c noctalia-shell (i am flake user :3)
       {sh = lib.getExe pkgs.noctalia-shell;}
       # { sh = "qs -c ~/source/qs/MyAwesomeShell"; }
     ];
@@ -215,8 +217,8 @@
       };
       "Mod+D" = {
         hotkey-overlay.title = "Run Application Launcher";
-        # action.spawn = ["${pkgs.noctalia-shell}/bin/noctalia" "ipc" "call" "launcher" "toggle"];
-        action.spawn = ["sh" "-c" "${lib.getExe pkgs.fuzzel}"];
+        action.spawn = ["${lib.getExe pkgs.noctalia-shell}" "ipc" "call" "launcher" "toggle"];
+        # action.spawn = ["sh" "-c" "${lib.getExe pkgs.fuzzel}"];
       };
 
       # "Mod+D" = {
