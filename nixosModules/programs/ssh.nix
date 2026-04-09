@@ -4,9 +4,7 @@
   config,
   options,
   ...
-}:
-
-{
+}: {
   options = {
     custom.ssh.enable = lib.mkEnableOption "Enable ssh-agent system wide";
   };

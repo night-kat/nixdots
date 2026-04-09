@@ -25,6 +25,8 @@
   time.timeZone = "Europe/Rome";
   # programs.hyprland.enable = true;
   custom = {
+    gnome-keyring.enable = true;
+    niri.enable = true;
     direnv.enable = true;
     sudo-rs.enable = true;
     boot = {
@@ -37,10 +39,10 @@
     gitGlobal.enable = true;
     systemLevelFish.enable = true;
     console.enable = true;
-    seahorse.enable = true;
+    # seahorse.enable = true;
     ssh.enable = true;
     usenet.enable = true;
-    auto-cpufreq.enable = true;
+    # auto-cpufreq.enable = true;
     avahiService.enable = true;
     bluemanService.enable = true;
     fwupdService.enable = true;

@@ -1,5 +1,6 @@
 {...}: {
   imports = [
+    ./niri.nix
     ./direnv.nix
     ./console.nix
     ./seahorse.nix
