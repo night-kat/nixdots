@@ -215,7 +215,8 @@
       };
       "Mod+D" = {
         hotkey-overlay.title = "Run Application Launcher";
-        action.spawn = ["${pkgs.noctalia-shell}/bin/noctalia" "ipc" "call" "launcher" "toggle"];
+        # action.spawn = ["${pkgs.noctalia-shell}/bin/noctalia" "ipc" "call" "launcher" "toggle"];
+        action.spawn = ["sh" "-c" "${lib.getExe pkgs.fuzzel}"];
       };
 
       # "Mod+D" = {
