@@ -2,7 +2,15 @@
   pkgs,
   lib,
   ...
-}: {
+}: let
+  noctalia = cmd:
+    [
+      "${lib.getExe pkgs.noctalia-shell}"
+      "ipc"
+      "call"
+    ]
+    ++ (pkgs.lib.splitString " " cmd);
+in {
   programs.niri.settings = {
     # ─── Input ────────────────────────────────────────────────────────────────
     # csd = client-side decorations
@@ -217,7 +225,7 @@
       };
       "Mod+D" = {
         hotkey-overlay.title = "Run Application Launcher";
-        action.spawn = ["${lib.getExe pkgs.noctalia-shell}" "ipc" "call" "launcher" "toggle"];
+        action.spawn = noctalia "launcher toggle";
         # action.spawn = ["sh" "-c" "${lib.getExe pkgs.fuzzel}"];
       };
 
@@ -251,89 +259,90 @@
       # Volume (PipeWire / WirePlumber)
       "XF86AudioRaiseVolume" = {
         allow-when-locked = true;
-        action.spawn = [
-          "sh"
-          "-c"
-          "${pkgs.wireplumber}/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"
-        ];
+        action.spawn = noctalia "volume increase";
+        # action.spawn = [
+        # "sh"
+        # "-c"
+        # "${pkgs.wireplumber}/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"
+        # ];
       };
       "XF86AudioLowerVolume" = {
         allow-when-locked = true;
-        action.spawn = [
-          "sh"
-          "-c"
-          "${pkgs.wireplumber}/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"
-        ];
+        action.spawn = noctalia "volume decrease";
+        # action.spawn = [
+        #   "sh"
+        #   "-c"
+        #   "${pkgs.wireplumber}/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"
+        # ];
       };
       "XF86AudioMute" = {
         allow-when-locked = true;
-        action.spawn = [
-          "sh"
-          "-c"
-          "${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-        ];
+        action.spawn = noctalia "volume muteOutput";
+        # action.spawn = [
+        #   "sh"
+        #   "-c"
+        #   "${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        # ];
       };
       "XF86AudioMicMute" = {
         allow-when-locked = true;
-        action.spawn = [
-          "sh"
-          "-c"
-          "${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-        ];
+        action.spawn = noctalia "volume muteInput";
+        # action.spawn = [
+        #   "sh"
+        #   "-c"
+        #   "${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+        # ];
       };
 
       # Media keys (playerctl)
       "XF86AudioPlay" = {
         allow-when-locked = true;
-        action.spawn = [
-          "sh"
-          "-c"
-          "${pkgs.playerctl}/bin/playerctl play-pause"
-        ];
-      };
-      "XF86AudioStop" = {
-        allow-when-locked = true;
-        action.spawn = [
-          "sh"
-          "-c"
-          "${pkgs.playerctl}/bin/playerctl stop"
-        ];
+        action.spawn = noctalia "media playPause";
+        # action.spawn = [
+        #   "sh"
+        #   "-c"
+        #   "${pkgs.playerctl}/bin/playerctl play-pause"
+        # ];
       };
       "XF86AudioPrev" = {
         allow-when-locked = true;
-        action.spawn = [
-          "sh"
-          "-c"
-          "${pkgs.playerctl}/bin/playerctl previous"
-        ];
+        action.spawn = noctalia "media previous";
+        # action.spawn = [
+        #   "sh"
+        #   "-c"
+        #   "${pkgs.playerctl}/bin/playerctl previous"
+        # ];
       };
       "XF86AudioNext" = {
         allow-when-locked = true;
-        action.spawn = [
-          "sh"
-          "-c"
-          "${pkgs.playerctl}/bin/playerctl next"
-        ];
+        action.spawn = noctalia "media next";
+        # action.spawn = [
+        #   "sh"
+        #   "-c"
+        #   "${pkgs.playerctl}/bin/playerctl next"
+        # ];
       };
 
       # Brightness (brightnessctl — multi-arg spawn, no shell needed)
       "XF86MonBrightnessUp" = {
         allow-when-locked = true;
-        action.spawn = [
-          "${pkgs.brightnessctl}/bin/brightnessctl"
-          # "--class=backlight"
-          "set"
-          "+5%"
-        ];
+        action.spawn = noctalia "brightness increase";
+        # action.spawn = [
+        #   "${pkgs.brightnessctl}/bin/brightnessctl"
+        #   # "--class=backlight"
+        #   "set"
+        #   "+5%"
+        # ];
       };
       "XF86MonBrightnessDown" = {
         allow-when-locked = true;
-        action.spawn = [
-          "${pkgs.brightnessctl}/bin/brightnessctl"
-          # "--class=backlight"
-          "set"
-          "5%-"
-        ];
+        action.spawn = noctalia "brightness decrease";
+        # action.spawn = [
+        #   "${pkgs.brightnessctl}/bin/brightnessctl"
+        #   # "--class=backlight"
+        #   "set"
+        #   "5%-"
+        # ];
       };
 
       # Overview & window control
