@@ -144,9 +144,13 @@ in {
     spawn-at-startup = [
       # {argv = ["${pkgs.waybar}"];}
       # {sh = "noctalia-shell";}
-
-      # NixOS Flake users: Use noctalia-shell directly instead of qs -c noctalia-shell (i am flake user :3)
-      {sh = lib.getExe pkgs.noctalia-shell;}
+      {
+        # NixOS Flake users: Use noctalia-shell directly instead of qs -c noctalia-shell (i am flake user :3)
+        command = [
+          "${lib.getExe pkgs.noctalia-shell}"
+        ];
+      }
+      # {sh = lib.getExe pkgs.noctalia-shell;}
       # { sh = "qs -c ~/source/qs/MyAwesomeShell"; }
     ];
 
@@ -203,6 +207,16 @@ in {
       }
     ];
 
+    # Set the overview wallpaper on the backdrop.
+    layer-rules = [
+      {
+        matches = [
+          {namespace = "^noctalia-overview*";}
+        ];
+        place-within-backdrop = true;
+      }
+    ];
+
     # ─── Binds ────────────────────────────────────────────────────────────────
     # Actions are attrsets:  action.<name> = <args>
     # Zero-arg actions:      action.close-window = []
@@ -234,8 +248,8 @@ in {
       #   action.spawn = lib.getExe pkgs.fuzzel;
       # };
       "Super+Alt+L" = {
-        hotkey-overlay.title = "Lock the Screen: swaylock";
-        action.spawn = lib.getExe pkgs.swaylock;
+        hotkey-overlay.title = "Lock the Screen";
+        action.spawn = noctalia "lockScreen lock";
       };
       "Mod+E" = {
         hotkey-overlay.title = "Open file manager: yazi";
