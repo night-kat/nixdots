@@ -58,7 +58,7 @@ in {
         # };
 
         background = {
-          path = "${./../../wallpapers/frieren_1.jpeg}";
+          # path = "${./../../wallpapers/frieren_1.jpeg}";
         };
       };
     };
