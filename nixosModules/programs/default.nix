@@ -8,5 +8,7 @@
     ./fish.nix
     ./hyprland.nix
     ./gitGlobal.nix
+    ./steam.nix
+    ./lutris.nix
   ];
 }

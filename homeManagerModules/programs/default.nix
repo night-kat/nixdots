@@ -1,5 +1,6 @@
 {...}: {
   imports = [
+    ./blender.nix
     ./firefox.nix
     ./fish.nix
     ./git.nix
@@ -11,5 +12,6 @@
     ./nvf
     ./neovide.nix
     ./element.nix
+    ./keepass.nix
   ];
 }
