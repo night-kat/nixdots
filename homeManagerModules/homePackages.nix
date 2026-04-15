@@ -1,9 +1,7 @@
 {
   pkgs,
-  inputs,
   lib,
   config,
-  options,
   ...
 }: {
   options = {
@@ -12,6 +10,9 @@
 
   config = lib.mkIf config.custom.sharedPackages.enable {
     home.packages = with pkgs; [
+      direnv
+      nix-direnv
+      inotify-tools
       libfido2
       fuchsia-cursor
       mpc

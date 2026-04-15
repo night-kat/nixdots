@@ -1,4 +1,10 @@
-{...}: {
+{
+  config,
+  lib,
+  pkgs,
+  hostName,
+  ...
+}: {
   imports = [
     ./../../../homeManagerModules
   ];
@@ -12,38 +18,36 @@
   programs.git = {
     signing = {
       format = "ssh";
-      signByDefault = false;
+      signByDefault = true;
     };
     settings = {
-      user.signingkey = ["~/.ssh/id_ed25519_sk_rk_github_sign.pub"];
-      # user.signingkey = ["~/.ssh/id_ed25519_sk_codeberg.pub"];
+      user.signingkey = "~/.ssh/id_ed25519_sk_rk_codeberg_auth.pub";
     };
   };
 
-  # wayland.windowManager.hyprland.enable = true;
+  wayland.windowManager.hyprland.enable = true;
   custom = {
-    niri.enable = true;
-    element.enable = true;
+    blender.enable = true;
+    # keepass.enable = true;
+    waybar.enable = true;
     nvf.enable = true;
     neovide.enable = true;
     gitui.enable = true;
     fishWithAliases.enable = true;
-    # myHyprland = {
-    #   enable = true;
-    #   laptopMonitor.enable = true;
-    #   hasLidSwitch = true;
-    # };
-    # hyprpaper.enable = true;
+    niri.enable = true;
+    myHyprland = {
+      enable = true;
+      laptopMonitor.enable = true;
+      hasLidSwitch = true;
+    };
+    hyprpaper.enable = true;
     myCursor.enable = true;
     firefox.enable = true;
     gitConfig.enable = true;
     mpv.enable = true;
+    element.enable = true;
     sharedPackages.enable = true;
     sshClientConfig.enable = true;
-    waybar = {
-      enable = true;
-      enableBattery = true;
-    };
     yazi.enable = true;
   };
 }
