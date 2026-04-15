@@ -206,7 +206,11 @@ in {
               enable = true;
               extensions.markview-nvim.enable = true;
             };
-            haskell.enable = true;
+            haskell = {
+              enable = true;
+              lsp.enable = true;
+              treesitter.enable = true;
+            };
             rust = {
               enable = true;
               # lsp = {
