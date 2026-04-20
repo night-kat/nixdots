@@ -219,9 +219,16 @@ in {
         hotkey-overlay.title = "Open a Terminal: kitty";
         action.spawn = lib.getExe pkgs.kitty;
       };
+      # "Mod+B" = {
+      #   hotkey-overlay.title = "Open a Browser: firefox";
+      #   action.spawn = lib.getExe pkgs.firefox;
+      # };
+      # TODO: find a better way to open zen.
+      # Zen is not in nixpkgs, only a flake input.
+      # If the code fails here, choose a different browser or enable Zen browser
       "Mod+B" = {
-        hotkey-overlay.title = "Open a Browser: firefox";
-        action.spawn = lib.getExe pkgs.firefox;
+        hotkey-overlay.title = "Open a Browser: zen-browser";
+        action.spawn = ["sh" "-c" "zen"];
       };
       "Mod+D" = {
         hotkey-overlay.title = "Run Application Launcher";
