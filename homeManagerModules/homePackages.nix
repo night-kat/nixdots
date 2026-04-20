@@ -36,7 +36,7 @@
       yazi
       proton-pass
       protonmail-desktop
-      protonvpn-gui
+      proton-vpn
       brightnessctl
       pwvucontrol
       obsidian
