@@ -25,6 +25,7 @@
   time.timeZone = "Europe/Rome";
   # programs.hyprland.enable = true;
   custom = {
+    zen-browser.enable = true;
     gnome-keyring.enable = true;
     niri.enable = true;
     direnv.enable = true;

@@ -40,7 +40,7 @@
       laptopMonitor.enable = true;
       hasLidSwitch = true;
     };
-    hyprpaper.enable = true;
+    # hyprpaper.enable = true;
     myCursor.enable = true;
     firefox.enable = true;
     gitConfig.enable = true;

@@ -1,5 +1,6 @@
 {...}: {
   imports = [
+    ./zen-browser.nix
     ./niri.nix
     ./direnv.nix
     ./console.nix
