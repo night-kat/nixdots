@@ -35,7 +35,7 @@
     # };
     # hyprpaper.enable = true;
     myCursor.enable = true;
-    # firefox.enable = true;
+    firefox.enable = true;
     gitConfig.enable = true;
     mpv.enable = true;
     sharedPackages.enable = true;
