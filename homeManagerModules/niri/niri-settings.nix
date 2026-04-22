@@ -62,7 +62,7 @@ in {
         height = 1504;
         refresh = 140.00000;
       };
-      scale = 1.57;
+      scale = 1.67;
       transform.rotation = 0;
       position = {
         x = 0;
@@ -86,6 +86,7 @@ in {
       default-column-width = {
         proportion = 0.5;
       };
+
       # default-column-width = {}; # let windows decide their width
 
       # focus-ring.enable defaults to true — matches KDL (nothing to set)
