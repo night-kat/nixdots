@@ -213,20 +213,20 @@ in {
             };
             rust = {
               enable = true;
-              # lsp = {
-              #   enable = true;
-              #   opts = ''
-              #     ['rust-analyzer'] = {
-              #       cargo = {allFeature = true},
-              #       checkOnSave = true,
-              #       procMacro = {
-              #         enable = true,
-              #       },
-              #     },'';
-              # };
+              lsp = {
+                enable = true;
+                #   opts = ''
+                #     ['rust-analyzer'] = {
+                #       cargo = {allFeature = true},
+                #       checkOnSave = true,
+                #       procMacro = {
+                #         enable = true,
+                #       },
+                #     },'';
+              };
               extensions.crates-nvim.enable = true;
-              # treesitter.enable = true;
-              # format.enable = true;
+              treesitter.enable = true;
+              format.enable = true;
             };
             yaml.enable = true;
             nix = {
