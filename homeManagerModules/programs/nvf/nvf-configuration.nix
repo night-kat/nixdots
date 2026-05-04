@@ -15,6 +15,9 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
+    programs.neovim.initLua = ''
+      vim.opt.clipboard = "unnamedplus"
+    '';
     programs.nvf = {
       enable = true;
 
