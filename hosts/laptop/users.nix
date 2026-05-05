@@ -1,7 +1,7 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   # Define a user account. Don't forget to set a password with ‘passwd’.
+
+  programs.fish.enable = true;
   users.users.nightcat = {
     isNormalUser = true;
     extraGroups = [
@@ -16,6 +16,8 @@
     shell = pkgs.fish;
     packages = with pkgs; [
       tree
+      git
+      fish
     ];
   };
 }

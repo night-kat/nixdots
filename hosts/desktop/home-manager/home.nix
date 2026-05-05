@@ -33,7 +33,7 @@
     nvf.enable = true;
     neovide.enable = true;
     gitui.enable = true;
-    fishWithAliases.enable = true;
+    fish.enable = true;
     niri.enable = true;
     myHyprland = {
       enable = true;
