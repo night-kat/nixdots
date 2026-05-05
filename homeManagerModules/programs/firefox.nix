@@ -1,7 +1,5 @@
 {
-  pkgs,
   lib,
-  options,
   config,
   ...
 }: {
@@ -11,5 +9,6 @@
 
   config = lib.mkIf config.custom.firefox.enable {
     programs.firefox.enable = true;
+    programs.firefox.configPath = "${config.xdg.configHome}/mozilla/firefox";
   };
 }
