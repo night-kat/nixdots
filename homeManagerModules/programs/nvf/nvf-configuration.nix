@@ -25,6 +25,9 @@ in {
       # most settings are documented in the appendix
       settings = {
         vim = {
+          options = {
+            clipboard = "unnamedplus";
+          };
           diagnostics = {
             enable = true;
             # This will show ALL the errors. It can use up all the screen space
