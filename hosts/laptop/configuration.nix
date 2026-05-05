@@ -26,6 +26,7 @@
   # programs.hyprland.enable = true;
   custom = {
     # zen-browser.enable = true;
+    fish.enable = true;
     gnome-keyring.enable = true;
     niri.enable = true;
     direnv.enable = true;

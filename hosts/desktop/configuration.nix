@@ -47,7 +47,7 @@
     sops.enable = true;
     yubikey.enable = true;
     gitGlobal.enable = true;
-    systemLevelFish.enable = true;
+    fish.enable = true;
     console.enable = true;
     # seahorse.enable = true;
     ssh.enable = true;

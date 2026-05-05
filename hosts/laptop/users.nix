@@ -13,11 +13,10 @@
     # openssh.authorizedKeys.keys = [
     # TODO: Add SSH public keys here
     # ];
-    shell = pkgs.fish;
+    shell = pkgs.bash;
     packages = with pkgs; [
       tree
       git
-      fish
     ];
   };
 }
