@@ -15,8 +15,9 @@
       signByDefault = false;
     };
     settings = {
-      user.signingkey = ["~/.ssh/id_ed25519_sk_rk_github_sign.pub"];
-      # user.signingkey = ["~/.ssh/id_ed25519_sk_codeberg.pub"];
+      # What to do if i commit to both codeberg and github?
+      # user.signingkey = ["~/.ssh/id_ed25519_sk_rk_github_sign.pub"];
+      user.signingkey = ["~/.ssh/id_ed25519_sk_rk_codeberg_auth.pub"];
     };
   };
 
