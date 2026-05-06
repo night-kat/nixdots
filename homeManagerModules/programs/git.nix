@@ -1,12 +1,8 @@
 {
-  pkgs,
   lib,
   config,
-  options,
   ...
-}:
-
-{
+}: {
   options = {
     custom.gitConfig.enable = lib.mkEnableOption "Enable git with preconfigured email and name";
   };
@@ -16,8 +12,12 @@
       enable = true;
       settings = {
         user = {
-          email = "178902183+night-kat@users.noreply.github.com";
-          name = "night-kat";
+          # github
+          # email = "178902183+night-kat@users.noreply.github.com";
+          # name = "night-kat";
+          # codeberg
+          email = "nightcat@noreply.codeberg.org";
+          name = "nightcat";
         };
       };
       # TODO: per host only, not shared
