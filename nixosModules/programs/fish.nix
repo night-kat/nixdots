@@ -5,13 +5,21 @@
   ...
 }: {
   options = {
-    custom.systemLevelFish.enable = lib.mkEnableOption "Enable fish systemwide";
+    custom.fish.enable = lib.mkEnableOption "Enable fish systemwide";
   };
 
-  config = lib.mkIf config.custom.systemLevelFish.enable {
-    programs.fish = {
-      enable = true;
-      shellInit = "${lib.getExe pkgs.fastfetch}";
+  config = lib.mkIf config.custom.fish.enable {
+    programs = {
+      fish.enable = true;
+      bash = {
+        interactiveShellInit = ''
+          if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
+          then
+            shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
+            exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
+          fi
+        '';
+      };
     };
   };
 }

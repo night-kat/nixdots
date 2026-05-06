@@ -16,7 +16,6 @@
     packages = with pkgs; [
       tree
       git
-      fish
     ];
   };
 }
