@@ -43,7 +43,7 @@
     gnome-keyring.enable = true;
     sudo-rs.enable = true;
     steam.enable = true;
-    lutris.enable = true;
+    # lutris.enable = true;
     sops.enable = true;
     yubikey.enable = true;
     gitGlobal.enable = true;
