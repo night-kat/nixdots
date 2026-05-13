@@ -18,6 +18,7 @@ in {
     programs.neovim.initLua = ''
       vim.opt.clipboard = "unnamedplus"
     '';
+
     programs.nvf = {
       enable = true;
 
@@ -25,9 +26,24 @@ in {
       # most settings are documented in the appendix
       settings = {
         vim = {
+          globals.vim_markdown_folding_disable = 1;
           options = {
             clipboard = "unnamedplus";
           };
+
+          options = {
+            foldmethod = "manual";
+            # doesn't work for some reason
+            # foldmethod = "syntax";
+            # foldenable = true;
+            # foldlevelstart = 0;
+
+            # shiftwidth = 4;
+            # tabstop = 4;
+            # Requirement for bufferline to work
+            termguicolors = true;
+          };
+
           diagnostics = {
             enable = true;
             # This will show ALL the errors. It can use up all the screen space
@@ -146,13 +162,6 @@ in {
             };
           };
 
-          options = {
-            # shiftwidth = 4;
-            # tabstop = 4;
-            # Requirement for bufferline to work
-            termguicolors = true;
-          };
-
           viAlias = false;
           vimAlias = true;
           lineNumberMode = "number";
@@ -165,12 +174,29 @@ in {
 
           # Temporary fix for indent not working
           # See issue https://github.com/NotAShelf/nvf/issues/1397
+
           autocmds = [
             {
               enable = true;
               event = ["BufEnter"];
               pattern = ["*"];
               command = "setlocal indentexpr=nvim_treesitter#indent()";
+            }
+            {
+              enable = true;
+              event = ["BufWinLeave"];
+              pattern = ["*.rs" "*.hs" "*.txt" "*.md" "*.toml" "*.yaml"];
+              # Causes buggy, flickery behaviour, idk why
+              # pattern = ["*"];
+              command = "mkview";
+              # command = "echo hello";
+            }
+            {
+              enable = true;
+              event = ["BufWinEnter"];
+              pattern = ["*.rs" "*.hs" "*.txt" "*.md" "*.toml" "*.yaml"];
+              # pattern = ["*"];
+              command = "silent loadview";
             }
           ];
 
