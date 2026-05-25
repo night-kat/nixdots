@@ -27,6 +27,7 @@ in {
       enable = true;
       systemd.enable = true;
       xwayland.enable = true;
+      configType = "lua";
       sourceFirst = true;
       settings = {
         # source = [

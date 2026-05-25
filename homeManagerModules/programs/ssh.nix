@@ -4,9 +4,7 @@
   config,
   options,
   ...
-}:
-
-{
+}: {
   options = {
     custom.sshClientConfig.enable = lib.mkEnableOption "Enable ssh client configuration";
   };
@@ -15,7 +13,7 @@
     programs.ssh = {
       enable = true; # This allows for ssh to be configured
       enableDefaultConfig = false;
-      matchBlocks.github_key.addKeysToAgent = "yes";
+      settings.github_key.addKeysToAgent = "yes";
     };
   };
 }
